@@ -1,0 +1,262 @@
+{
+  "DOMOV": "HOME",
+  "PLECHY": "SHEETS",
+  "PLOTOVE_DIELCE": "FENCE PANELS",
+  "SLUZBY": "SERVICES",
+  "KONTAKT": "CONTACT",
+  "PRISLUSENSTVO": "ACCESSORIES",
+  "ODPORUCANIA_MONTAZE": "INSTALLATION RECOMMENDATIONS",
+  "FARBY": "COLORS",
+  "MATERIAL": "MATERIAL",
+
+  "WELCOME": "Welcome to Kemax!",
+  "SUBTITLE": "highest quality sheet metal products",
+  "WHO_WE_ARE": "Who We Are",
+  "WHO_WE_ARE_DESC": "KEMAX, s.r.o. is a company with more than 20 years of tradition in sheet metal manufacturing. Our company specializes in the production of high-quality sheet metal components for various industrial sectors.",
+  "CERTIFIED_PRODUCTION": "Certified Production",
+  "CERTIFIED_PRODUCTION_DESC": "Our production is certified by the Welding Research Institute of SR, which confirms the high quality of our formed sheets and manufacturing processes.",
+  "QUALITY_MANAGEMENT": "Quality Management System",
+  "QUALITY_MANAGEMENT_DESC": "We have implemented a comprehensive quality management system that ensures consistent high level of our products and services.",
+  "QUALITY_RELIABILITY": "Quality and Reliability",
+  "QUALITY_RELIABILITY_DESC": "Product quality is verified by customer satisfaction and certificates from the Welding Research Institute of SR.",
+  "FLEXIBILITY": "Flexibility",
+  "FLEXIBILITY_DESC": "We can manufacture and dispatch all orders within 24 hours of receipt.",
+  "SATISFACTION": "Satisfaction",
+  "SATISFACTION_DESC": "Managing and building good relationships is binding for us, and therefore we continuously increase the satisfaction of all our clients.",
+  "WE_OFFER": "What We Offer",
+  "PRODUCT_RANGE": "Our product range includes smooth sheets, corrugated and trapezoidal profiles, and tinsmith products. We manufacture trapezoidal sheets on a line in a shape that was developed according to customer requirements.",
+  "SPECIALIZED_PRODUCTION": "Specialized Custom Production",
+  "PRODUCTION_ON_DEMAND": "Production on Demand",
+
+  "SUPPORT": "Our experts will be happy to help you choose the right accessories for your needs.",
+  "NEED_HELP": "Need help?",
+  "TELEPHONE": "+421 907 931 597",
+
+  "PLECHY_TITLE": "Sheets",
+  "MAIN_PROGRAM": "Our Main Production Program",
+  "PRODUCTS_DESCRIPTION": "Smooth sheets, corrugated sheets and trapezoid profiles in various finishes",
+  "SMOOTH_SHEETS": "SMOOTH SHEETS",
+  "SMOOTH_SHEETS_DESC": "cold-rolled and galvanized",
+  "SMOOTH_SHEETS_ALT": "Smooth sheets",
+  "CORRUGATED_SHEETS": "CORRUGATED SHEETS",
+  "CORRUGATED_SHEETS_DESC": "cold-rolled and galvanized",
+  "CORRUGATED_SHEETS_ALT": "Corrugated sheets",
+  "TRAPEZOID_PROFILES": "TRAPEZOID PROFILES",
+  "TRAPEZOID_PROFILES_DESC": "T18, T29 and T50, including plastic-coated",
+  "TRAPEZOID_PROFILES_ALT": "Trapezoid profiles",
+
+  "FENCE_TITLE": "Fence Panels",
+  "FENCE_DESCRIPTION": "Our offer includes the production of fence panels. We manufacture them from galvanized and plastic-coated sheet metal in various RAL color shades, for wide use on any fence.",
+  "FENCE_BENEFITS_TITLE": "Benefits of Our Fence Panels",
+  "FENCE_SPECS_TITLE": "Technical Specifications",
+  "FENCE_IMAGE_ALT": "Fence panels",
+  "FENCE_BENEFITS": [
+    "Longer lifespan than wooden fence panels",
+    "Minimal maintenance requirements",
+    "Color stability",
+    "Wide selection of RAL color shades"
+  ],
+  "FENCE_SPECIFICATIONS": [
+    { "nazov": "Length", "hodnota": "500 mm – 2800 mm" },
+    { "nazov": "Width", "hodnota": "125 mm" },
+    { "nazov": "Thickness", "hodnota": "0.50 mm" },
+    {
+      "nazov": "Recommended quantity",
+      "hodnota": "7-8 pieces per running meter"
+    }
+  ],
+
+  "SERVICES_TITLE": "Services",
+  "SERVICES_DESCRIPTION": "We process customer coils and sheets into corrugated, trapezoidal and smooth sheets, and perform bending on a 3-meter manual bender.",
+  "SERVICES_IMAGE_1_ALT": "Services - Image 1",
+  "SERVICES_IMAGE_2_ALT": "Services - Image 2",
+  "SERVICES_IMAGE_3_ALT": "Services - Image 3",
+  "SERVICES_IMAGE_4_ALT": "Services - Image 4",
+
+  "CONTACT_TITLE": "Contact",
+  "PHONE": "Phone",
+  "PHONE_NUMBER": "+421 123 456 789",
+  "EMAIL": "Email",
+  "EMAIL_ADDRESS": "info@kemax.sk",
+  "ADDRESS": "Address",
+  "ADDRESS_VALUE": "Košice, Slovakia",
+  "OPENING_HOURS": "Opening Hours",
+  "OPENING_HOURS_VALUE": "Mon-Fri: 8:00 - 16:00",
+  "NAME": "Name",
+  "NAME_PLACEHOLDER": "Your name",
+  "EMAIL_PLACEHOLDER": "Your email",
+  "SUBJECT": "Subject",
+  "SUBJECT_PLACEHOLDER": "Message subject",
+  "MESSAGE": "Message",
+  "MESSAGE_PLACEHOLDER": "Your message",
+  "SEND_MESSAGE": "Send Message",
+  "SENDING": "Sending...",
+  "MESSAGE_SENT_SUCCESS": "Message sent successfully!",
+  "MESSAGE_SENT_ERROR": "Something went wrong, please try again.",
+  "MAP_TITLE": "KEMAX location map",
+
+  "ACCESSORIES_TITLE": "Accessories",
+  "PRICE_NOTICE": "Current prices are available upon request!",
+  "SEALING_PROFILES_TITLE": "Sealing Profiles for Trapezoid Sheets",
+  "SEALING_PROFILES_DESC": "They provide better resistance against wind and moisture when covering roofs. Made from certified PE foam.",
+  "SEALING_PROFILES_IMG_ALT": "Sealing profiles",
+  "LENGTH": "Length",
+  "PROFILES": [
+    { "name": "Profile T18", "length": "927mm" },
+    { "name": "Profile T29", "length": "956mm" },
+    { "name": "Profile T50", "length": "780mm" }
+  ],
+  "SCREWS_TITLE": "Screws",
+  "SCREWS_DESC": "We offer screws with washers and sealing.",
+  "FOR_METAL": "For Metal",
+  "FOR_WOOD": "For Wood - Farming",
+  "METAL_SCREWS": [
+    {
+      "type": "GT 5",
+      "sizes": ["5.5 x 19mm", "5.5 x 32mm", "5.5 x 35mm", "5.5 x 50mm"]
+    },
+    {
+      "type": "GT 8",
+      "sizes": ["5.5 x 19mm"]
+    },
+    {
+      "type": "GT 12",
+      "sizes": ["5.5 x 19mm"]
+    }
+  ],
+  "WOOD_SCREWS": [
+    {
+      "type": "Galvanized",
+      "sizes": ["4.8 x 20mm", "4.8 x 35mm", "4.8 x 60mm"]
+    },
+    {
+      "type": "Plastic-coated",
+      "sizes": ["4.8 x 20mm", "4.8 x 35mm"]
+    }
+  ],
+  "TINSMITH_TITLE": "Tinsmith Products",
+  "TINSMITH_DESC": "We have expanded our range to include this type of products to be as comprehensive as possible.",
+  "TINSMITH_IMG_ALT": "Tinsmith products",
+
+  "MANIPULATION": "Manipulation",
+  "MANIPULATION_CONTENT": "Proper handling of the product",
+  "MANIPULATION_TIP_1": "Use protective gloves while handling.",
+  "MANIPULATION_TIP_2": "Be cautious when carrying heavy items.",
+  "MANIPULATION_TIP_3": "Ensure safety by using proper lifting techniques.",
+  "IMPORTANT_WARNING": "Important Warning",
+  "WARNING_CONTENT": "Improper handling can damage the product.",
+  "CUTTING": "Cutting",
+  "CUTTING_TIP_1": "Use a sharp knife for precise cuts.",
+  "CUTTING_TIP_2": "Ensure straight cutting lines.",
+  "CUTTING_TIP_3": "Use eye and hand protection while cutting.",
+
+  "STORAGE": "Storage",
+  "BASIC_REQUIREMENTS": "Basic storage requirements",
+  "STORAGE_TIP_1": "Store in a dry and cool place.",
+  "STORAGE_TIP_2": "Protect the product from direct sunlight.",
+  "STORAGE_TIP_3": "Keep products away from chemicals.",
+  "STORAGE_TIP_4": "Ensure proper ventilation during storage.",
+  "WARRANTY_CONDITIONS": "Warranty conditions",
+  "STORAGE_WARNING": "Improper storage may lead to product deterioration.",
+
+  "TOOLS": "Tools",
+  "TOOLS_LIST": "List of required tools",
+  "TOOL_1": "Hammer",
+  "TOOL_2": "Pliers",
+  "TOOL_3": "Screwdriver",
+  "TOOL_4": "Measuring tool",
+
+  "PREPARATION": "Preparation",
+  "PREPARATION_STEPS": "Preparation steps before installation",
+  "PREPARATION_STEP_1": "Check all components of the package.",
+  "PREPARATION_STEP_2": "Make sure all tools are ready.",
+  "PREPARATION_STEP_3": "Read the instructions carefully.",
+  "PREPARATION_WARNING": "Study all instructions carefully before starting installation.",
+  "PREPARATION_WARNING_CONTENT": "Improper preparation may cause problems during installation.",
+
+  "INSTALLATION": "Installation",
+  "INSTALLATION_GUIDELINES": "Installation guidelines",
+  "INSTALLATION_STEP_1": "Ensure there is enough space for installation.",
+  "INSTALLATION_STEP_2": "Follow the steps outlined in the instructions.",
+  "INSTALLATION_STEP_3": "Check the installation’s accuracy before final fastening.",
+  "INSTALLATION_WARNING": "Warning",
+  "INSTALLATION_WARNING_CONTENT": "If unsure, seek professional help for installation.",
+
+  "ASSEMBLY_RECOMMENDATIONS": "Installation Reccomendations",
+  "ASSEMBLY_INSTRUCTION": "Assembly instructions",
+
+  "PAINTS": "Paints",
+  "RAL_PAINTS_DESCRIPTION_TITLE": "RAL Paints for Plastisol-Coated Sheets and Products",
+  "RAL_PAINTS_DESCRIPTION": "We offer you a range of color shades. Find your color, or we'll mix exactly the one you like.",
+  "COLOR_RECOMMENDATION": "We recommend verifying the color in our facility or physically in the RAL color chart. Displayed colors may slightly differ from reality.",
+  "POPULAR_COLORS": "Popular Colors",
+  "ALL_COLORS": "All Colors",
+  "TECHNICAL_INFO": "Technical Information",
+  "TECHNICAL_INFO_POINTS": [
+    "Standard surface treatment thickness: 25-35 μm",
+    "Excellent weather resistance",
+    "High color fastness",
+    "Possibility of selecting from the entire RAL color range"
+  ],
+
+  "MATERIAL_TITLE": "Material",
+  "MATERIAL_QUALITY_STATEMENT": "High-quality materials and cutting-edge technologies guarantee the quality of our products for you, our clients.",
+  "MATERIAL_PROCESSING_DESCRIPTION": "When processing materials, we pay the highest attention to maintaining basic procedures to preserve maximum quality and work safety.",
+  "WAREHOUSE_STOCKS_DESCRIPTION": "Our warehouse stocks primarily consist of galvanized coils. For the customer, this means a short delivery time from order to completion. Other cold-rolled and plastic-coated coils are secured according to order quantities.",
+  "ORDER_RECOMMENDATION": "We recommend ordering goods with sufficient advance time, i.e. 4 to 5 weeks before the desired delivery date.",
+  "COLD_ROLLED_COILS_TITLE": "COLD-ROLLED COILS",
+  "COLD_ROLLED_COILS_ITEMS": ["STN 10004.21", "STN 11321.21", "STN 11331.21"],
+  "GALVANIZED_COILS_TITLE": "GALVANIZED COILS",
+  "GALVANIZED_COILS_ITEMS": [
+    "STN 10004 - DX 51 D according to EN",
+    "STN 11331 - 10142/90 EN",
+    "STN 11321 - DX 52 D according to EN",
+    "DIN 17162/77"
+  ],
+  "PLASTIC_COATED_COILS_TITLE": "PLASTIC-COATED COILS",
+  "PLASTIC_COATED_COILS_ITEMS": [
+    "STN 10004 - ST01Z",
+    "STN 11321 - ST02Z",
+    "STN 11331 - ST03Z",
+    "DIN 17162-T2/1980"
+  ],
+  "PLASTIC_COATED_COILS_EXTRA_INFO": "Base coating thickness of 5-15 µm and top coating thickness from 10 to 200 µm",
+  "COPYRIGHT_TEXT": "© 2024 Jaroslav Barabáš",
+  "EMAIL_FOOTER": "kemax@kemax.sk",
+  "BUSINESS_HOURS": "Monday - Friday: 7:00 - 15:00",
+  "ADDRESS_FOOTER": "Veľká Ida 682, 044 55 Košice-okolie",
+  "PRIVACY_POLICY": "Privacy Policy",
+
+  "PAGE_TITLE": "Trapezoid profiles",
+  "IMAGE_ALT": "Sheets",
+  "ABOUT_SHEETS_TITLE": "About Our Sheets",
+  "ABOUT_SHEETS_DESCRIPTION": "Cut from cold-rolled coils, without surface treatment or galvanized. Our sheets are known for their high quality and versatility, suitable for various industrial and construction applications.",
+  "OUR_OFFER_TITLE": "Our Offer",
+  "SMOOTH_SHEETS_TITLE": "SMOOTH SHEETS",
+  "SMOOTH_SHEET_DETAILS": [
+    "Manufactured in lengths from 300 to 3000 mm or according to customer requirements.",
+    "In thicknesses of 0.5 - 1.5 mm, in widths of 500 - 1250 mm according to customer requirements"
+  ],
+  "CORRUGATED_SHEETS_TITLE": "CORRUGATED SHEETS",
+  "CORRUGATED_SHEET_DETAILS": [
+    "Manufactured with cross-wave corrugation from smooth galvanized sheets.",
+    "In thicknesses of 0.50 - 0.55 mm, in standard length of 2000 mm, also available in shorter lengths by agreement",
+    "INITIAL WIDTH 1000 mm",
+    "Actual final width: 750 - 800 mm, usable width: 730 - 740 mm"
+  ],
+
+  "PAGE_TITLE2": "Trapezoidal Sheet Metal",
+  "PAGE_DESCRIPTION": "Trapezoidal sheet metal profiles T18, T29, and T50 are ideal building materials for exterior and interior roofing and facade cladding of industrial buildings, family homes, garages, and various farm buildings due to their useful properties.",
+  "PRODUCT_CHARACTERISTICS_TITLE": "Production Characteristics",
+  "PRODUCT_CHARACTERISTICS_ITEMS": [
+    "Produced from coils, cold-rolled",
+    "Galvanized and plastic-coated"
+  ],
+  "PRODUCTION_LENGTHS_TITLE": "Production Lengths",
+  "USABLE_PROFILE_WIDTH_TITLE": "Usable Profile Width",
+  "APPROXIMATE_WEIGHT_TITLE": "Approximate Weight (kg/m²)",
+  "THICKNESS_HEADER": "Thickness",
+  "WIDTH_1110_HEADER": "Width 1110 mm",
+  "WIDTH_890_HEADER": "Width 890 mm"
+}
+

@@ -3,21 +3,21 @@ import React from "react";
 import { Check } from "lucide-react";
 import Support from "../../components/Support";
 import { motion } from "framer-motion";
+import { useTranslations } from "../../components/useTranslations";
 
 const PlotoveDielce = () => {
-  const benefity = [
-    "Dlhšia životnosť ako u drevených plotových dielcov",
-    "Minimálne nároky na údržbu",
-    "Farebná stálosť",
-    "Široký výber farebných odtieňov RAL",
-  ];
+  const translations = useTranslations();
 
-  const specifikacie = [
-    { nazov: "Dĺžka", hodnota: "500 mm – 2800 mm" },
-    { nazov: "Šírka", hodnota: "125 mm" },
-    { nazov: "Hrúbka", hodnota: "0,50 mm" },
-    { nazov: "Odporúčaný počet", hodnota: "7-8 ks na bežný meter" },
-  ];
+  if (!translations) {
+    return (
+      <div className="flex justify-center items-center text-[#d61414] font-bold">
+        Loading...
+      </div>
+    );
+  }
+
+  const benefity = translations.FENCE_BENEFITS;
+  const specifikacie = translations.FENCE_SPECIFICATIONS;
 
   return (
     <div>
@@ -30,7 +30,7 @@ const PlotoveDielce = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-4xl font-bold text-white text-center pt-16"
           >
-            Plotové dielce
+            {translations.FENCE_TITLE}
           </motion.h1>
         </div>
       </div>
@@ -46,14 +46,11 @@ const PlotoveDielce = () => {
                 transition={{ duration: 0.6 }}
                 className="text-lg text-gray-700 mb-8"
               >
-                V našej ponuke je aj výroba plotových dielcov - plotoviek.
-                Vyrábame ich z pozinkovaného a lakoplastovaného plechu v rôznych
-                farebných odtieňoch – RAL, pre široké využitie na akýkoľvek
-                plot.
+                {translations.FENCE_DESCRIPTION}
               </motion.p>
 
               <div className="grid gap-8">
-                {/* Benefity */}
+                {/* Benefits */}
                 <div>
                   <motion.h2
                     initial={{ opacity: 0 }}
@@ -62,7 +59,7 @@ const PlotoveDielce = () => {
                     transition={{ duration: 0.6, delay: 0.4 }}
                     className="text-2xl font-semibold text-gray-900 mb-4"
                   >
-                    Výhody našich plotových dielcov
+                    {translations.FENCE_BENEFITS_TITLE}
                   </motion.h2>
                   <ul className="space-y-3">
                     {benefity.map((benefit, index) => (
@@ -81,7 +78,7 @@ const PlotoveDielce = () => {
                   </ul>
                 </div>
 
-                {/* Špecifikácie */}
+                {/* Specifications */}
                 <div>
                   <motion.h2
                     initial={{ opacity: 0 }}
@@ -90,7 +87,7 @@ const PlotoveDielce = () => {
                     transition={{ duration: 0.6, delay: 0.6 }}
                     className="text-2xl font-semibold text-gray-900 mb-4"
                   >
-                    Technické špecifikácie
+                    {translations.FENCE_SPECS_TITLE}
                   </motion.h2>
                   <div className="bg-gray-50 rounded-lg p-6">
                     {specifikacie.map((spec, index) => (
@@ -123,7 +120,7 @@ const PlotoveDielce = () => {
             >
               <img
                 src="/produkty/plotove-dielce.jpg"
-                alt="Plotové dielce"
+                alt={translations.FENCE_IMAGE_ALT}
                 className="w-full h-full object-cover rounded-lg shadow-md hover:shadow-lg"
               />
             </motion.div>

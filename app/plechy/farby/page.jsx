@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import Image from "next/image";
 import { Card, CardContent } from "../../../components/ui/card";
 import {
@@ -10,10 +11,21 @@ import {
 } from "../../../components/ui/tabs";
 import { Alert, AlertDescription } from "../../../components/ui/alert";
 import { Info } from "lucide-react";
-import Support from "../../../components/Support";
 import { motion } from "framer-motion";
+import { useTranslations } from "../../../components/useTranslations";
+import Support from "../../../components/Support";
 
 export default function RalColorsComponent() {
+  const translations = useTranslations();
+
+  if (!translations) {
+    return (
+      <div className="flex justify-center items-center text-[#d61414] font-bold">
+        Loading...
+      </div>
+    );
+  }
+
   const colorProducts = [
     { id: 1, name: "RAL 9010", image: "/farby/ral-9010.jpg" },
     { id: 2, name: "RAL 9002", image: "/farby/ral-9002.jpg" },
@@ -42,7 +54,7 @@ export default function RalColorsComponent() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-4xl font-bold text-white text-center pt-5"
           >
-            Farby
+            {translations.PAINTS}
           </motion.h1>
         </div>
       </div>
@@ -55,12 +67,9 @@ export default function RalColorsComponent() {
           className="space-y-2"
         >
           <h2 className="text-2xl font-bold">
-            Farby RAL pre lakoplastované plechy a výrobky
+            {translations.RAL_PAINTS_DESCRIPTION_TITLE}
           </h2>
-          <p className="text-gray-600">
-            Ponúkame vám škálu farebných odtieňov. Nájdite si tú svoju farbu,
-            alebo vám namiešame práve takú aká sa vám páči.
-          </p>
+          <p className="text-gray-600">{translations.RAL_PAINTS_DESCRIPTION}</p>
           <br />
         </motion.div>
         <motion.div
@@ -72,9 +81,7 @@ export default function RalColorsComponent() {
           <Alert>
             <Info className="h-4 w-4" />
             <AlertDescription className=" mt-[5px]">
-              Doporučujeme vám farebnosť preveriť v našej prevádzke alebo
-              fyzicky vo vzorkovníku RAL. Zobrazené farby sa môžu od skutočnosti
-              mierne odlišovať.
+              {translations.COLOR_RECOMMENDATION}
             </AlertDescription>
           </Alert>
         </motion.div>
@@ -87,8 +94,10 @@ export default function RalColorsComponent() {
         >
           <Tabs defaultValue="popular" className="space-y-4">
             <TabsList>
-              <TabsTrigger value="popular">Populárne farby</TabsTrigger>
-              <TabsTrigger value="all">Všetky farby</TabsTrigger>
+              <TabsTrigger value="popular">
+                {translations.POPULAR_COLORS}
+              </TabsTrigger>
+              <TabsTrigger value="all">{translations.ALL_COLORS}</TabsTrigger>
             </TabsList>
 
             <TabsContent value="popular" className="space-y-4">
@@ -164,16 +173,15 @@ export default function RalColorsComponent() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="space-y-4"
         >
-          <h3 className="text-xl font-bold">Technické informácie</h3>
+          <h3 className="text-xl font-bold">{translations.TECHNICAL_INFO}</h3>
           <ul className="list-disc pl-6 space-y-2">
-            <li>Štandardná hrúbka povrchovej úpravy: 25-35 μm</li>
-            <li>Vynikajúca odolnosť voči poveternostným vplyvom</li>
-            <li>Vysoká farebná stálosť</li>
-            <li>Možnosť výberu z celej škály RAL odtieňov</li>
+            {translations.TECHNICAL_INFO_POINTS.map((point, index) => (
+              <li key={index}>{point}</li>
+            ))}
           </ul>
         </motion.div>
 
-        <Support></Support>
+        <Support />
       </div>
     </div>
   );

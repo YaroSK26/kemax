@@ -1,8 +1,19 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import { useTranslations } from "../../../components/useTranslations";
 
 const TechnologiesPage = () => {
+  const translations = useTranslations();
+
+  if (!translations) {
+    return (
+      <div className="flex justify-center items-center text-[#d61414] font-bold">
+        Loading...
+      </div>
+    );
+  }
+
   return (
     <div className="bg-white text-gray-800 pt-[75px]">
       {/* Header Section */}
@@ -15,7 +26,7 @@ const TechnologiesPage = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-4xl font-bold text-white text-center"
           >
-            Materiál
+            {translations.MATERIAL_TITLE}
           </motion.h1>
         </div>
       </div>
@@ -29,17 +40,14 @@ const TechnologiesPage = () => {
             transition={{ duration: 0.5 }}
             className="font-bold"
           >
-            Kvalitné materiály a špičkové technológie sú zárukou kvality našich
-            výrobkov pre vás, klientov.
+            {translations.MATERIAL_QUALITY_STATEMENT}
           </motion.p>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            Pri spracovaní materiálu dbáme v čo najvyššej miere na dodržiavanie
-            základných postupov pre zachovanie maximálnej kvality a bezpečnosti
-            práce.
+            {translations.MATERIAL_PROCESSING_DESCRIPTION}
           </motion.p>
           <div className="rounded-lg">
             <motion.p
@@ -47,10 +55,7 @@ const TechnologiesPage = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
             >
-              Naše skladové zásoby tvoria predovšetkým pozinkované zvitky. Pre
-              zákazníka to znamená krátku dobu dodania od objednávky až po
-              vyhotovenie. Ostatné zvitky valcované zastudena a lakoplastované
-              zabezpečujeme podľa množstva objednávok.
+              {translations.WAREHOUSE_STOCKS_DESCRIPTION}
             </motion.p>
           </div>
           <motion.p
@@ -59,8 +64,7 @@ const TechnologiesPage = () => {
             transition={{ duration: 0.8 }}
             className="italic text-gray-600"
           >
-            Odporúčame objednať tovar v dostatočnom časovom predstihu t.j. 4 až
-            5 týždňov pred žiadaným termínom dodania.
+            {translations.ORDER_RECOMMENDATION}
           </motion.p>
         </section>
 
@@ -72,8 +76,8 @@ const TechnologiesPage = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <Card
-              title="ZVITKY VALCOVANÉ ZA STUDENA"
-              items={["STN 10004.21", "STN 11321.21", "STN 11331.21"]}
+              title={translations.COLD_ROLLED_COILS_TITLE}
+              items={translations.COLD_ROLLED_COILS_ITEMS}
             />
           </motion.div>
           <motion.div
@@ -82,13 +86,8 @@ const TechnologiesPage = () => {
             transition={{ duration: 0.5, delay: 0.3 }}
           >
             <Card
-              title="POZINKOVANÉ ZVITKY"
-              items={[
-                "STN 10004 - DX 51 D podľa EN",
-                "STN 11331 - 10142/90 EN",
-                "STN 11321 - DX 52 D podľa EN",
-                "DIN 17162/77",
-              ]}
+              title={translations.GALVANIZED_COILS_TITLE}
+              items={translations.GALVANIZED_COILS_ITEMS}
             />
           </motion.div>
           <motion.div
@@ -97,15 +96,9 @@ const TechnologiesPage = () => {
             transition={{ duration: 0.5, delay: 0.4 }}
           >
             <Card
-              title="LAKOPLASTOVANÉ ZVITKY"
-              items={[
-                "STN 10004 - ST01Z",
-                "STN 11321 - ST02Z",
-                "STN 11331 - ST03Z",
-                "DIN 17162-T2/1980",
-              ]}
-              extraInfo="Nominálnej hrúbky povlaku základného 5-15 µm a vrchného povlaku
-            od 10 do 200 µm"
+              title={translations.PLASTIC_COATED_COILS_TITLE}
+              items={translations.PLASTIC_COATED_COILS_ITEMS}
+              extraInfo={translations.PLASTIC_COATED_COILS_EXTRA_INFO}
             />
           </motion.div>
         </div>

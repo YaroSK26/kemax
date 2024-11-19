@@ -1,5 +1,7 @@
 "use client";
+import React from "react";
 import { motion } from "framer-motion";
+import { useTranslations } from "../../../components/useTranslations";
 import Support from "../../../components/Support";
 
 const PlechSection = ({ title, description }) => (
@@ -20,17 +22,18 @@ const PlechSection = ({ title, description }) => (
 );
 
 export default function PlechyPage() {
-  const smoothSheetDetails = [
-    "Vyrábame v dĺžkach od 300 do 3000 mm alebo podľa požiadavky zákazníka.",
-    "v hrúbkach 0,5 – 1,5 mm, v šírkach 500 – 1250 mm podľa požiadavky zákazníka",
-  ];
+  const translations = useTranslations();
 
-  const corrugatedSheetDetails = [
-    "Vyrábané s priečnym vlnením z hladkých pozinkovaných plechov.",
-    "v hrúbkach 0,50 – 0,55 mm, v štandardnej dĺžke 2000 mm, podľa dohody aj v kratších dĺžkach",
-    "VSTUPNÁ ŠÍRKA 1000 mm",
-    "výsledná skutočná šírka: 750 – 800 mm, užitočná šírka: 730 – 740 mm",
-  ];
+  if (!translations) {
+    return (
+      <div className="flex justify-center items-center text-[#d61414] font-bold">
+        Loading...
+      </div>
+    );
+  }
+
+  const smoothSheetDetails = translations.SMOOTH_SHEET_DETAILS;
+  const corrugatedSheetDetails = translations.CORRUGATED_SHEET_DETAILS;
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -43,7 +46,7 @@ export default function PlechyPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Hladké a vlnité plechy
+            {translations.PAGE_TITLE}
           </motion.h2>
         </div>
       </div>
@@ -57,19 +60,17 @@ export default function PlechyPage() {
         >
           <motion.img
             src="/hladke.jpg"
-            alt="Plechy"
+            alt={translations.IMAGE_ALT}
             width={600}
             height={400}
             className="md:w-1/2 object-cover w-full h-full"
           />
           <div className="md:w-1/2 p-8">
             <h2 className="text-3xl font-semibold text-gray-800 mb-4">
-              O našich plechoch
+              {translations.ABOUT_SHEETS_TITLE}
             </h2>
             <p className="text-gray-700 text-lg leading-relaxed">
-              Delené zo zvitkov, valcovaných za studena, bez povrchovej úpravy
-              alebo pozinkované. Naše plechy sú známe svojou vysokou kvalitou a
-              všestrannosťou, vhodné pre rôzne priemyselné a stavebné aplikácie.
+              {translations.ABOUT_SHEETS_DESCRIPTION}
             </p>
           </div>
         </motion.div>
@@ -82,16 +83,16 @@ export default function PlechyPage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-3xl font-semibold text-gray-800 mb-6 text-center"
           >
-            Naša ponuka
+            {translations.OUR_OFFER_TITLE}
           </motion.h2>
 
           <div className="grid md:grid-cols-2 gap-8">
             <PlechSection
-              title="HLADKÉ PLECHY"
+              title={translations.SMOOTH_SHEETS_TITLE}
               description={smoothSheetDetails}
             />
             <PlechSection
-              title="VLNITÉ PLECHY"
+              title={translations.CORRUGATED_SHEETS_TITLE}
               description={corrugatedSheetDetails}
             />
           </div>

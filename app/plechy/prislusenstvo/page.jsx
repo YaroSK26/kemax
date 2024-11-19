@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import {
   Card,
   CardContent,
@@ -8,9 +8,20 @@ import {
 import { Mail, Wrench, Shield, PenToolIcon as Tool } from "lucide-react";
 import Link from "next/link";
 import Support from "../../../components/Support";
-import { motion } from "framer-motion"; 
+import { motion } from "framer-motion";
+import { useTranslations } from "../../../components/useTranslations";
 
 export default function Component() {
+  const translations = useTranslations();
+
+  if (!translations) {
+    return (
+      <div className="flex justify-center items-center text-[#d61414] font-bold">
+        Loading...
+      </div>
+    );
+  }
+
   return (
     <div className="w-full mx-auto py-12">
       {/* Hero Section */}
@@ -23,7 +34,7 @@ export default function Component() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Príslušenstvo
+            {translations.ACCESSORIES_TITLE}
           </motion.h1>
         </div>
       </div>
@@ -41,7 +52,7 @@ export default function Component() {
               <CardContent className="flex items-center gap-4 p-6">
                 <Mail className="w-6 h-6 text-red-500" />
                 <p className="text-red-700 font-semibold text-lg">
-                  Aktuálne ceny sú na vyžiadanie!
+                  {translations.PRICE_NOTICE}
                 </p>
               </CardContent>
             </Card>
@@ -58,35 +69,32 @@ export default function Component() {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-2xl font-semibold">
                   <Shield className="w-6 h-6 text-red-500" />
-                  Tesniace profily pre trapézové profily
+                  {translations.SEALING_PROFILES_TITLE}
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="grid md:grid-cols-2 gap-8">
                   <div>
                     <p className="text-zinc-600 mb-6 text-lg">
-                      Slúžia na lepšiu odolnosť voči vetru a vlhku pri pokrytí
-                      striech. Vyrobené sú z certifikovanej PE peny.
+                      {translations.SEALING_PROFILES_DESC}
                     </p>
                     <div className="space-y-4">
-                      <div className="p-4 bg-gray-50 rounded-lg">
-                        <div className="font-semibold text-lg">Profil T18</div>
-                        <div className="text-gray-600">Dĺžka: 927mm</div>
-                      </div>
-                      <div className="p-4 bg-gray-50 rounded-lg">
-                        <div className="font-semibold text-lg">Profil T29</div>
-                        <div className="text-gray-600">Dĺžka: 956mm</div>
-                      </div>
-                      <div className="p-4 bg-gray-50 rounded-lg">
-                        <div className="font-semibold text-lg">Profil T50</div>
-                        <div className="text-gray-600">Dĺžka: 780mm</div>
-                      </div>
+                      {translations.PROFILES.map((profile, index) => (
+                        <div key={index} className="p-4 bg-gray-50 rounded-lg">
+                          <div className="font-semibold text-lg">
+                            {profile.name}
+                          </div>
+                          <div className="text-gray-600">
+                            {translations.LENGTH}: {profile.length}
+                          </div>
+                        </div>
+                      ))}
                     </div>
                   </div>
                   <div className="relative aspect-[4/3]">
                     <img
                       src="/produkty/profil-A-B.png"
-                      alt="Tesniace profily"
+                      alt={translations.SEALING_PROFILES_IMG_ALT}
                       className="rounded-lg object-cover"
                     />
                   </div>
@@ -106,62 +114,54 @@ export default function Component() {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-2xl font-semibold">
                   <Wrench className="w-6 h-6 text-red-500" />
-                  Skrutky
+                  {translations.SCREWS_TITLE}
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-zinc-600 mb-6 text-lg">
-                  V ponuke skrutky s podložkou a s tesnením.
+                  {translations.SCREWS_DESC}
                 </p>
 
                 <div className="grid gap-8">
-                  {/* Do kovu */}
+                  {/* For Metal */}
                   <div>
-                    <h3 className="font-semibold mb-4 text-xl">Do kovu</h3>
+                    <h3 className="font-semibold mb-4 text-xl">
+                      {translations.FOR_METAL}
+                    </h3>
                     <div className="grid gap-4">
-                      <div className="p-4 bg-gray-50 rounded-lg">
-                        <div className="font-semibold text-lg">GT 5</div>
-                        <div className="text-gray-600 mt-2 space-y-1">
-                          <div>• 5,5 x 19mm</div>
-                          <div>• 5,5 x 32mm</div>
-                          <div>• 5,5 x 35mm</div>
-                          <div>• 5,5 x 50mm</div>
+                      {translations.METAL_SCREWS.map((screw, index) => (
+                        <div key={index} className="p-4 bg-gray-50 rounded-lg">
+                          <div className="font-semibold text-lg">
+                            {screw.type}
+                          </div>
+                          <div className="text-gray-600 mt-2 space-y-1">
+                            {screw.sizes.map((size, idx) => (
+                              <div key={idx}>• {size}</div>
+                            ))}
+                          </div>
                         </div>
-                      </div>
-                      <div className="p-4 bg-gray-50 rounded-lg">
-                        <div className="font-semibold text-lg">GT 8</div>
-                        <div className="text-gray-600 mt-2">5,5 x 19mm</div>
-                      </div>
-                      <div className="p-4 bg-gray-50 rounded-lg">
-                        <div className="font-semibold text-lg">GT 12</div>
-                        <div className="text-gray-600 mt-2">5,5 x 19mm</div>
-                      </div>
+                      ))}
                     </div>
                   </div>
 
-                  {/* Do dreva */}
+                  {/* For Wood */}
                   <div>
                     <h3 className="font-semibold mb-4 text-xl">
-                      Do dreva – farmárske
+                      {translations.FOR_WOOD}
                     </h3>
                     <div className="grid gap-4">
-                      <div className="p-4 bg-gray-50 rounded-lg">
-                        <div className="font-semibold text-lg">Pozinkované</div>
-                        <div className="text-gray-600 mt-2 space-y-1">
-                          <div>• 4,8 x 20mm</div>
-                          <div>• 4,8 x 35mm</div>
-                          <div>• 4,8 x 60mm</div>
+                      {translations.WOOD_SCREWS.map((screw, index) => (
+                        <div key={index} className="p-4 bg-gray-50 rounded-lg">
+                          <div className="font-semibold text-lg">
+                            {screw.type}
+                          </div>
+                          <div className="text-gray-600 mt-2 space-y-1">
+                            {screw.sizes.map((size, idx) => (
+                              <div key={idx}>• {size}</div>
+                            ))}
+                          </div>
                         </div>
-                      </div>
-                      <div className="p-4 bg-gray-50 rounded-lg">
-                        <div className="font-semibold text-lg">
-                          Lakoplastované
-                        </div>
-                        <div className="text-gray-600 mt-2 space-y-1">
-                          <div>• 4,8 x 20mm</div>
-                          <div>• 4,8 x 35mm</div>
-                        </div>
-                      </div>
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -180,26 +180,25 @@ export default function Component() {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-2xl font-semibold">
                   <Tool className="w-6 h-6 text-red-500" />
-                  Klampiarské výrobky
+                  {translations.TINSMITH_TITLE}
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-zinc-600 mb-6 text-lg">
-                  Rozšírili sme náš sortiment aj o tento druh výrobkov, aby sme
-                  boli čo najkomplexnejší.
+                  {translations.TINSMITH_DESC}
                 </p>
                 <Link href={"/produkty/klampiarske-vyrobky.jpg"}>
                   <img
                     className="md:w-[750px] w-[300px] h-[200px] md:h-[500px]"
                     src="/produkty/klampiarske-vyrobky.jpg"
-                    alt=""
+                    alt={translations.TINSMITH_IMG_ALT}
                   />
                 </Link>
               </CardContent>
             </Card>
           </motion.section>
         </div>
-        <Support></Support>
+        <Support />
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { Badge } from "../components/ui/badge";
 import { Card, CardContent } from "../components/ui/card";
 import {
@@ -12,28 +12,23 @@ import {
   CheckCircle,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import { useTranslations } from "../components/useTranslations";
 
 export default function Component() {
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-  };
+  const translations = useTranslations();
+
+  if (!translations) {
+    return (
+      <div className="flex justify-center items-center text-[#d61414] font-bold">
+        Loading...
+      </div>
+    );
+  }
 
   const staggerChildren = {
     visible: {
       transition: {
         staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-    hover: {
-      scale: 1.03,
-      transition: {
-        duration: 0.3,
       },
     },
   };
@@ -57,7 +52,7 @@ export default function Component() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              Vítajte v Kemax!
+              {translations.WELCOME}
             </motion.h1>
             <motion.p
               className="text-center mt-6 text-xl text-zinc-100"
@@ -66,7 +61,7 @@ export default function Component() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              výrobky z plechu najvyššej kvality
+              {translations.SUBTITLE}
             </motion.p>
           </div>
         </motion.div>
@@ -83,13 +78,10 @@ export default function Component() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-              Kto sme
+              {translations.WHO_WE_ARE}
             </h2>
             <p className="mt-4 text-lg text-zinc-600 max-w-3xl mx-auto">
-              KEMAX, s.r.o. je spoločnosť s viac ako 20-ročnou tradíciou v
-              oblasti výroby plechových výrobkov. Naša firma sa špecializuje na
-              výrobu vysoko kvalitných plechových komponentov pre rôzne
-              priemyselné odvetvia.
+              {translations.WHO_WE_ARE_DESC}
             </p>
           </motion.div>
           <motion.div
@@ -113,13 +105,11 @@ export default function Component() {
                       <Award className="w-6 h-6 text-red-500" />
                     </div>
                     <h3 className="font-semibold text-xl">
-                      Certifikovaná výroba
+                      {translations.CERTIFIED_PRODUCTION}
                     </h3>
                   </div>
                   <p className="mt-4 text-zinc-600">
-                    Naša výroba je certifikovaná Výskumným ústavom zváračským
-                    SR, čo potvrdzuje vysokú kvalitu našich tvarovaných plechov
-                    a výrobných procesov.
+                    {translations.CERTIFIED_PRODUCTION_DESC}
                   </p>
                 </CardContent>
               </Card>
@@ -138,13 +128,11 @@ export default function Component() {
                       <CheckCircle className="w-6 h-6 text-red-500" />
                     </div>
                     <h3 className="font-semibold text-xl">
-                      Systém riadenia kvality
+                      {translations.QUALITY_MANAGEMENT}
                     </h3>
                   </div>
                   <p className="mt-4 text-zinc-600">
-                    Implementovali sme komplexný systém riadenia kvality, ktorý
-                    zabezpečuje konzistentnú vysokú úroveň našich produktov a
-                    služieb.
+                    {translations.QUALITY_MANAGEMENT_DESC}
                   </p>
                 </CardContent>
               </Card>
@@ -166,21 +154,18 @@ export default function Component() {
             {[
               {
                 icon: <Shield className="w-6 h-6 text-red-500" />,
-                title: "Kvalita a spoľahlivosť",
-                description:
-                  "Kvalita výrobkov je preverená spokojnosťou zákazníkov a certifikátmi od Výskumného ústavu zváračského SR.",
+                title: translations.QUALITY_RELIABILITY,
+                description: translations.QUALITY_RELIABILITY_DESC,
               },
               {
                 icon: <Timer className="w-6 h-6 text-red-500" />,
-                title: "Flexibilita",
-                description:
-                  "Všetky objednávky vieme vyrobiť a vyexpedovať do 24 hodín od ich prijatia.",
+                title: translations.FLEXIBILITY,
+                description: translations.FLEXIBILITY_DESC,
               },
               {
                 icon: <Heart className="w-6 h-6 text-red-500" />,
-                title: "Spokojnosť",
-                description:
-                  "Riadenie a budovanie dobrých vzťahov je pre nás záväzné a preto neustále zvyšujeme spokojnosť všetkých našich klientov.",
+                title: translations.SATISFACTION,
+                description: translations.SATISFACTION_DESC,
               },
             ].map((benefit, index) => (
               <motion.div
@@ -224,12 +209,10 @@ export default function Component() {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                Ponúkame
+                {translations.WE_OFFER}
               </h2>
               <p className="mt-4 text-lg text-zinc-600">
-                Náš výrobný sortiment zahŕňa plechy hladké, vlnité a trapézové
-                profily, klampiarské výrobky. Trapézové plechy vyrábame na linke
-                v tvare, ktorý bol vyvinutý podľa požiadaviek zákazníkov.
+                {translations.PRODUCT_RANGE}
               </p>
               <div className="mt-8">
                 <motion.div
@@ -241,7 +224,7 @@ export default function Component() {
                 >
                   <Factory className="w-5 h-5 text-red-500" />
                   <span className="font-medium">
-                    Špecializovaná výroba na mieru
+                    {translations.SPECIALIZED_PRODUCTION}
                   </span>
                 </motion.div>
                 <br />
@@ -253,7 +236,9 @@ export default function Component() {
                   transition={{ duration: 0.6, delay: 0.2 }}
                 >
                   <Clock4 className="w-5 h-5 text-red-500" />
-                  <span className="font-medium">Výroba aj na počkanie</span>
+                  <span className="font-medium">
+                    {translations.PRODUCTION_ON_DEMAND}
+                  </span>
                 </motion.div>
               </div>
             </motion.div>

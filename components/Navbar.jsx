@@ -1,13 +1,60 @@
 "use client";
 
-import { Menu, X, Flag, ChevronDown } from "lucide-react";
-import { useState } from "react";
-import Image from "next/image";
+import { Menu, X, ChevronDown } from "lucide-react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useTranslations } from "./useTranslations";
+
+const LanguageSwitcher = () => {
+  const [language, setLanguage] = useState("sk");
+  const [translations, setTranslations] = useState(null);
+
+  useEffect(() => {
+    const storedLanguage = localStorage.getItem("language") || "sk";
+    setLanguage(storedLanguage);
+    loadTranslations(storedLanguage);
+  }, []);
+
+  const loadTranslations = async (lang) => {
+    try {
+      const response = await fetch(`/locales/${lang}.json`);
+      const data = await response.json();
+      setTranslations(data);
+      window.dispatchEvent(
+        new CustomEvent("languageChange", { detail: { translations: data } })
+      );
+    } catch (error) {
+      console.error("Error loading translations:", error);
+    }
+  };
+
+  const handleLanguageChange = async (e) => {
+    const lang = e.target.value;
+    localStorage.setItem("language", lang);
+    setLanguage(lang);
+    await loadTranslations(lang);
+  };
+
+  return (
+    <>
+      <select
+        value={language}
+        onChange={handleLanguageChange}
+        className="hidden xl:block bg-[#24272D] text-white border border-[#d61414] rounded p-1"
+      >
+        <option value="sk">Slovenčina</option>
+        <option value="en">English</option>
+      </select>
+    </>
+  );
+};
 
 const NavItem = ({ href, text, dropdownItems }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const translations = useTranslations();
+
+  const translatedText = translations ? translations[text] || text : text;
 
   return (
     <motion.span
@@ -23,7 +70,7 @@ const NavItem = ({ href, text, dropdownItems }) => {
           href={href}
           className="text-muted hover:text-white transition-colors"
         >
-          {text}
+          {translatedText}
         </Link>
         {dropdownItems && <ChevronDown className="w-4 h-4 text-muted" />}
       </div>
@@ -47,7 +94,9 @@ const NavItem = ({ href, text, dropdownItems }) => {
                   href={item.href}
                   className="block px-4 py-2 text-sm text-muted hover:bg-[#d61414] hover:text-white transition-colors"
                 >
-                  {item.text}
+                  {translations
+                    ? translations[item.text] || item.text
+                    : item.text}
                 </Link>
               </motion.li>
             ))}
@@ -60,16 +109,39 @@ const NavItem = ({ href, text, dropdownItems }) => {
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [language, setLanguage] = useState("sk");
+  const translations = useTranslations();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
+  const handleLanguageChange = async (lang) => {
+    localStorage.setItem("language", lang);
+    setLanguage(lang);
+    try {
+      const response = await fetch(`/locales/${lang}.json`);
+      const data = await response.json();
+      window.dispatchEvent(
+        new CustomEvent("languageChange", { detail: { translations: data } })
+      );
+    } catch (error) {
+      console.error("Error loading translations:", error);
+    }
+  };
+
   const plechyDropdown = [
-    { href: "/plechy/prislusenstvo", text: "PRISLUŠENSTVO" },
-    { href: "/plechy/montaz", text: "ODPORUČANIA MONTÁŽE" },
+    { href: "/plechy/prislusenstvo", text: "PRISLUSENSTVO" },
+    { href: "/plechy/montaz", text: "ODPORUCANIA_MONTAZE" },
     { href: "/plechy/farby", text: "FARBY" },
-    { href: "/plechy/material", text: "MATERIÁL" },
+    { href: "/plechy/material", text: "MATERIAL" },
+  ];
+
+  const menuItems = [
+    { href: "/", text: "DOMOV" },
+    { href: "/plotove-dielce", text: "PLOTOVE_DIELCE" },
+    { href: "/sluzby", text: "SLUZBY" },
+    { href: "/kontakt", text: "KONTAKT" },
   ];
 
   return (
@@ -82,12 +154,16 @@ export default function Navbar() {
           transition={{ duration: 0.3, delay: 0.1 }}
         >
           <Link href="/">
-            <Image src="/logo.png" alt="Logo" width={200} height={40} />
+            <img
+              src="/logo.png"
+              alt="Logo"
+              className="w-40X h-7 sm:w-52 sm:h-8"
+            />
           </Link>
         </motion.div>
 
         <motion.div
-          className="hidden lg:flex flex-1 justify-center mr-[150px]"
+          className="hidden xl:flex flex-1 justify-center mr-[150px]"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, delay: 0.15 }}
@@ -100,9 +176,9 @@ export default function Navbar() {
                 text="PLECHY"
                 dropdownItems={plechyDropdown}
               />
-              <NavItem href="/plotove-dielce" text="PLOTOVÉ DIELCE" />
-              <NavItem href="/sluzby" text="SLUŽBY" />
-              <NavItem href="/kontakt" text="KONTAKT" />
+              {menuItems.slice(1).map((item) => (
+                <NavItem key={item.href} href={item.href} text={item.text} />
+              ))}
             </ul>
           </nav>
         </motion.div>
@@ -113,8 +189,9 @@ export default function Navbar() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.3, delay: 0.2 }}
         >
-          <Flag className="text-muted hover:text-muted-foreground" size={24} />
+          <LanguageSwitcher />
         </motion.div>
+
         <motion.div
           className="absolute sm:w-[350px] w-[250px] right-0 z-0 h-[80px] clip bg-[#d61414]"
           initial={{ opacity: 0, x: 100 }}
@@ -123,7 +200,7 @@ export default function Navbar() {
         />
 
         <motion.button
-          className="lg:hidden text-muted hover:text-muted-foreground z-50 fixed sm:right-12 right-12 top-[21.5px]"
+          className="xl:hidden text-muted z-50 fixed right-8 top-[21.5px]"
           onClick={toggleMenu}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -141,12 +218,7 @@ export default function Navbar() {
           exit={{ opacity: 0, x: "100%" }}
           transition={{ duration: 0.2 }}
         >
-          {[
-            { href: "/", text: "DOMOV" },
-            { href: "/plotove-dielce", text: "PLOTOVÉ DIELCE" },
-            { href: "/sluzby", text: "SLUŽBY" },
-            { href: "/kontakt", text: "KONTAKT" },
-          ].map((item, index) => (
+          {menuItems.map((item, index) => (
             <motion.div
               key={item.href}
               initial={{ opacity: 0, y: 20 }}
@@ -158,7 +230,9 @@ export default function Navbar() {
                 className="text-white text-2xl"
                 onClick={toggleMenu}
               >
-                {item.text}
+                {translations
+                  ? translations[item.text] || item.text
+                  : item.text}
               </Link>
             </motion.div>
           ))}
@@ -169,7 +243,9 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.25 }}
           >
-            <div className="text-white text-2xl mb-2 text-center">PLECHY</div>
+            <div className="text-white text-2xl mb-2 text-center">
+              {translations ? translations["PLECHY"] || "PLECHY" : "PLECHY"}
+            </div>
             <div className="space-y-2">
               {plechyDropdown.map((item, index) => (
                 <motion.div
@@ -183,11 +259,31 @@ export default function Navbar() {
                     className="block text-white text-lg hover:text-[#d61414] transition-colors"
                     onClick={toggleMenu}
                   >
-                    {item.text}
+                    {translations
+                      ? translations[item.text] || item.text
+                      : item.text}
                   </Link>
                 </motion.div>
               ))}
             </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.35 }}
+          >
+            <select
+              value={language}
+              onChange={(e) => {
+                handleLanguageChange(e.target.value);
+                toggleMenu();
+              }}
+              className="bg-[#24272D] text-white border border-[#d61414] rounded p-2 text-xl"
+            >
+              <option value="sk">Slovenčina</option>
+              <option value="en">English</option>
+            </select>
           </motion.div>
         </motion.div>
       )}

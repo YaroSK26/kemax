@@ -1,0 +1,258 @@
+{
+  "DOMOV": "DOMOV",
+  "PLECHY": "PLECHY",
+  "PLOTOVE_DIELCE": "PLOTOVÉ DIELCE",
+  "SLUZBY": "SLUŽBY",
+  "KONTAKT": "KONTAKT",
+  "PRISLUSENSTVO": "PRISLUŠENSTVO",
+  "ODPORUCANIA_MONTAZE": "ODPORUČANIA MONTÁŽE",
+  "FARBY": "FARBY",
+  "MATERIAL": "MATERIÁL",
+
+  "WELCOME": "Vítajte v Kemax!",
+  "SUBTITLE": "výrobky z plechu najvyššej kvality",
+  "WHO_WE_ARE": "Kto sme",
+  "WHO_WE_ARE_DESC": "KEMAX, s.r.o. je spoločnosť s viac ako 20-ročnou tradíciou v oblasti výroby plechových výrobkov. Naša firma sa špecializuje na výrobu vysoko kvalitných plechových komponentov pre rôzne priemyselné odvetvia.",
+  "CERTIFIED_PRODUCTION": "Certifikovaná výroba",
+  "CERTIFIED_PRODUCTION_DESC": "Naša výroba je certifikovaná Výskumným ústavom zváračským SR, čo potvrdzuje vysokú kvalitu našich tvarovaných plechov a výrobných procesov.",
+  "QUALITY_MANAGEMENT": "Systém riadenia kvality",
+  "QUALITY_MANAGEMENT_DESC": "Implementovali sme komplexný systém riadenia kvality, ktorý zabezpečuje konzistentnú vysokú úroveň našich produktov a služieb.",
+  "QUALITY_RELIABILITY": "Kvalita a spoľahlivosť",
+  "QUALITY_RELIABILITY_DESC": "Kvalita výrobkov je preverená spokojnosťou zákazníkov a certifikátmi od Výskumného ústavu zváračského SR.",
+  "FLEXIBILITY": "Flexibilita",
+  "FLEXIBILITY_DESC": "Všetky objednávky vieme vyrobiť a vyexpedovať do 24 hodín od ich prijatia.",
+  "SATISFACTION": "Spokojnosť",
+  "SATISFACTION_DESC": "Riadenie a budovanie dobrých vzťahov je pre nás záväzné a preto neustále zvyšujeme spokojnosť všetkých našich klientov.",
+  "WE_OFFER": "Ponúkame",
+  "PRODUCT_RANGE": "Náš výrobný sortiment zahŕňa plechy hladké, vlnité a trapézové profily, klampiarské výrobky. Trapézové plechy vyrábame na linke v tvare, ktorý bol vyvinutý podľa požiadaviek zákazníkov.",
+  "SPECIALIZED_PRODUCTION": "Špecializovaná výroba na mieru",
+  "PRODUCTION_ON_DEMAND": "Výroba aj na počkanie",
+
+  "SUPPORT": "Naši odborníci vám radi pomôžu s výberom vhodného príslušenstva pre vaše potreby.",
+  "NEED_HELP": "Potrebujete poradiť?",
+  "TELEPHONE": "+421 907 931 597",
+
+  "PLECHY_TITLE": "Plechy",
+  "MAIN_PROGRAM": "Náš hlavný výrobný program",
+  "PRODUCTS_DESCRIPTION": "Hladké plechy, vlnité plechy a trapézové profily v rôznych úpravách",
+  "SMOOTH_SHEETS": "HLADKÉ PLECHY",
+  "SMOOTH_SHEETS_DESC": "valcované za studena a pozinkované",
+  "SMOOTH_SHEETS_ALT": "Hladké plechy",
+  "CORRUGATED_SHEETS": "VLNITÉ PLECHY",
+  "CORRUGATED_SHEETS_DESC": "valcované za studena a pozinkované",
+  "CORRUGATED_SHEETS_ALT": "Vlnité plechy",
+  "TRAPEZOID_PROFILES": "TRAPÉZOVÉ PROFILY",
+  "TRAPEZOID_PROFILES_DESC": "T18, T29 a T50, aj lakoplastované",
+  "TRAPEZOID_PROFILES_ALT": "Trapézové profily",
+
+  "FENCE_TITLE": "Plotové dielce",
+  "FENCE_DESCRIPTION": "V našej ponuke je aj výroba plotových dielcov - plotoviek. Vyrábame ich z pozinkovaného a lakoplastovaného plechu v rôznych farebných odtieňoch – RAL, pre široké využitie na akýkoľvek plot.",
+  "FENCE_BENEFITS_TITLE": "Výhody našich plotových dielcov",
+  "FENCE_SPECS_TITLE": "Technické špecifikácie",
+  "FENCE_IMAGE_ALT": "Plotové dielce",
+  "FENCE_BENEFITS": [
+    "Dlhšia životnosť ako u drevených plotových dielcov",
+    "Minimálne nároky na údržbu",
+    "Farebná stálosť",
+    "Široký výber farebných odtieňov RAL"
+  ],
+  "FENCE_SPECIFICATIONS": [
+    { "nazov": "Dĺžka", "hodnota": "500 mm – 2800 mm" },
+    { "nazov": "Šírka", "hodnota": "125 mm" },
+    { "nazov": "Hrúbka", "hodnota": "0,50 mm" },
+    { "nazov": "Odporúčaný počet", "hodnota": "7-8 ks na bežný meter" }
+  ],
+
+  "SERVICES_TITLE": "Služby",
+  "SERVICES_DESCRIPTION": "Vykonávame prepracovanie zvitkov a tabúľ zákazníkov na vlnitý, trapézový a hladký plech, a ohýbanie na ručnej 3 metrovej ohýbačke.",
+  "SERVICES_IMAGE_1_ALT": "Služby - Obrázok 1",
+  "SERVICES_IMAGE_2_ALT": "Služby - Obrázok 2",
+  "SERVICES_IMAGE_3_ALT": "Služby - Obrázok 3",
+  "SERVICES_IMAGE_4_ALT": "Služby - Obrázok 4",
+
+  "CONTACT_TITLE": "Kontakt",
+  "PHONE": "Telefón",
+  "PHONE_NUMBER": "+421 123 456 789",
+  "EMAIL": "Email",
+  "EMAIL_ADDRESS": "info@kemax.sk",
+  "ADDRESS": "Adresa",
+  "ADDRESS_VALUE": "Košice, Slovensko",
+  "OPENING_HOURS": "Otváracie hodiny",
+  "OPENING_HOURS_VALUE": "Po-Pia: 8:00 - 16:00",
+  "NAME": "Meno",
+  "NAME_PLACEHOLDER": "Vaše meno",
+  "EMAIL_PLACEHOLDER": "Váš email",
+  "SUBJECT": "Predmet",
+  "SUBJECT_PLACEHOLDER": "Predmet správy",
+  "MESSAGE": "Správa",
+  "MESSAGE_PLACEHOLDER": "Vaša správa",
+  "SEND_MESSAGE": "Odoslať správu",
+  "SENDING": "Odosielanie...",
+  "MESSAGE_SENT_SUCCESS": "Správa bola úspešne odoslaná!",
+  "MESSAGE_SENT_ERROR": "Niečo sa pokazilo, skúste znova.",
+  "MAP_TITLE": "Mapa lokality KEMAX",
+
+  "ACCESSORIES_TITLE": "Príslušenstvo",
+  "PRICE_NOTICE": "Aktuálne ceny sú na vyžiadanie!",
+  "SEALING_PROFILES_TITLE": "Tesniace profily pre trapézové profily",
+  "SEALING_PROFILES_DESC": "Slúžia na lepšiu odolnosť voči vetru a vlhku pri pokrytí striech. Vyrobené sú z certifikovanej PE peny.",
+  "SEALING_PROFILES_IMG_ALT": "Tesniace profily",
+  "LENGTH": "Dĺžka",
+  "PROFILES": [
+    { "name": "Profil T18", "length": "927mm" },
+    { "name": "Profil T29", "length": "956mm" },
+    { "name": "Profil T50", "length": "780mm" }
+  ],
+  "SCREWS_TITLE": "Skrutky",
+  "SCREWS_DESC": "V ponuke skrutky s podložkou a s tesnením.",
+  "FOR_METAL": "Do kovu",
+  "FOR_WOOD": "Do dreva – farmárske",
+  "METAL_SCREWS": [
+    {
+      "type": "GT 5",
+      "sizes": ["5,5 x 19mm", "5,5 x 32mm", "5,5 x 35mm", "5,5 x 50mm"]
+    },
+    {
+      "type": "GT 8",
+      "sizes": ["5,5 x 19mm"]
+    },
+    {
+      "type": "GT 12",
+      "sizes": ["5,5 x 19mm"]
+    }
+  ],
+  "WOOD_SCREWS": [
+    {
+      "type": "Pozinkované",
+      "sizes": ["4,8 x 20mm", "4,8 x 35mm", "4,8 x 60mm"]
+    },
+    {
+      "type": "Lakoplastované",
+      "sizes": ["4,8 x 20mm", "4,8 x 35mm"]
+    }
+  ],
+  "TINSMITH_TITLE": "Klampiarské výrobky",
+  "TINSMITH_DESC": "Rozšírili sme náš sortiment aj o tento druh výrobkov, aby sme boli čo najkomplexnejší.",
+  "TINSMITH_IMG_ALT": "Klampiarské výrobky",
+
+  "MANIPULATION": "Manipulácia",
+  "MANIPULATION_CONTENT": "Správna manipulácia s produktom",
+  "MANIPULATION_TIP_1": "Pri manipulácii používajte ochranné rukavice.",
+  "MANIPULATION_TIP_2": "Nezabúdajte na opatrnosť pri prenášaní ťažkých predmetov.",
+  "MANIPULATION_TIP_3": "Dbajte na bezpečnosť a používajte správne techniky zdvíhania.",
+  "IMPORTANT_WARNING": "Dôležité upozornenie",
+  "WARNING_CONTENT": "Nevhodná manipulácia môže spôsobiť poškodenie výrobku.",
+  "CUTTING": "Rezanie",
+  "CUTTING_TIP_1": "Používajte kvalitný nôž na presné rezy.",
+  "CUTTING_TIP_2": "Dbajte na rovné rezné línie.",
+  "CUTTING_TIP_3": "Používajte ochranu očí a rúk počas rezania.",
+
+  "STORAGE": "Skladovanie",
+  "BASIC_REQUIREMENTS": "Základné požiadavky na skladovanie",
+  "STORAGE_TIP_1": "Skladujte na suchom a chladnom mieste.",
+  "STORAGE_TIP_2": "Zabezpečte výrobky pred priamym slnečným žiarením.",
+  "STORAGE_TIP_3": "Udržujte výrobky mimo dosahu chemikálií.",
+  "STORAGE_TIP_4": "Dbajte na dostatočnú ventiláciu pri skladovaní.",
+  "WARRANTY_CONDITIONS": "Podmienky záruky",
+  "STORAGE_WARNING": "Nesprávne skladovanie môže viesť k znehodnoteniu výrobku.",
+
+  "TOOLS": "Náradie",
+  "TOOLS_LIST": "Zoznam potrebného náradia",
+  "TOOL_1": "Kladivo",
+  "TOOL_2": "Kliešte",
+  "TOOL_3": "Šrobovák",
+  "TOOL_4": "Merač",
+
+  "PREPARATION": "Príprava",
+  "PREPARATION_STEPS": "Kroky prípravy pred inštaláciou",
+  "PREPARATION_STEP_1": "Skontrolujte všetky komponenty balenia.",
+  "PREPARATION_STEP_2": "Uistite sa, že máte všetky nástroje pripravené.",
+  "PREPARATION_STEP_3": "Prečítajte si návod na použitie.",
+  "PREPARATION_WARNING": "Pred začiatkom inštalácie si dôkladne preštudujte všetky pokyny.",
+  "PREPARATION_WARNING_CONTENT": "Nesprávna príprava môže viesť k problémom pri inštalácii.",
+
+  "INSTALLATION": "Inštalácia",
+  "INSTALLATION_GUIDELINES": "Pokyny na inštaláciu",
+  "INSTALLATION_STEP_1": "Uistite sa, že máte dostatok miesta na inštaláciu.",
+  "INSTALLATION_STEP_2": "Postupujte podľa jednotlivých krokov uvedených v návode.",
+  "INSTALLATION_STEP_3": "Skontrolujte správnosť inštalácie pred finálnym upevnením.",
+  "INSTALLATION_WARNING": "Upozornenie",
+  "INSTALLATION_WARNING_CONTENT": "Ak nie ste si istí, vyhľadajte odbornú pomoc pri inštalácii.",
+
+  "ASSEMBLY_RECOMMENDATIONS": "Odporúčania k montáži",
+  "ASSEMBLY_INSTRUCTION": "Návod na montáž",
+
+  "PAINTS": "Farby",
+  "RAL_PAINTS_DESCRIPTION_TITLE": "RAL Farby pre plastisolom pokryté plechy a produkty",
+  "RAL_PAINTS_DESCRIPTION": "Ponúkame vám širokú škálu odtieňov farieb. Nájdite si svoju farbu, alebo vám zmiešame presne tú, ktorú si prajete.",
+  "COLOR_RECOMMENDATION": "Odporúčame overiť farbu v našich priestoroch alebo fyzicky v RAL farebnej škále. Zobrazené farby sa môžu mierne líšiť od skutočnosti.",
+  "POPULAR_COLORS": "Populárne farby",
+  "ALL_COLORS": "Všetky farby",
+  "TECHNICAL_INFO": "Technické informácie",
+  "TECHNICAL_INFO_POINTS": [
+    "Štandardná hrúbka povrchovej úpravy: 25-35 μm",
+    "Vynikajúca odolnosť voči poveternostným podmienkam",
+    "Vysoká stálosť farby",
+    "Možnosť výberu z celej RAL farebnej škály"
+  ],
+  "MATERIAL_TITLE": "Materiál",
+  "MATERIAL_QUALITY_STATEMENT": "Vysokokvalitné materiály a moderné technológie zaručujú kvalitu našich produktov pre vás, našich klientov.",
+  "MATERIAL_PROCESSING_DESCRIPTION": "Pri spracovaní materiálov venujeme najvyššiu pozornosť dodržiavaniu základných postupov, aby sme zachovali maximálnu kvalitu a bezpečnosť práce.",
+  "WAREHOUSE_STOCKS_DESCRIPTION": "Naše skladové zásoby sa primárne skladajú z pozinkovaných kotúčov. Pre zákazníka to znamená krátky čas dodania od objednania po dokončenie. Ostatné studenokované a plastom pokryté kotúče sú zabezpečené podľa objednaných množstiev.",
+  "ORDER_RECOMMENDATION": "Odporúčame objednávať tovar s dostatočným časovým predstihom, t.j. 4 až 5 týždňov pred požadovaným termínom dodania.",
+  "COLD_ROLLED_COILS_TITLE": "STUDENOKOVANÉ KOTÚČE",
+  "COLD_ROLLED_COILS_ITEMS": ["STN 10004.21", "STN 11321.21", "STN 11331.21"],
+  "GALVANIZED_COILS_TITLE": "POZINKOVANÉ KOTÚČE",
+  "GALVANIZED_COILS_ITEMS": [
+    "STN 10004 - DX 51 D podľa EN",
+    "STN 11331 - 10142/90 EN",
+    "STN 11321 - DX 52 D podľa EN",
+    "DIN 17162/77"
+  ],
+  "PLASTIC_COATED_COILS_TITLE": "PLASTOM POKRYTÉ KOTÚČE",
+  "PLASTIC_COATED_COILS_ITEMS": [
+    "STN 10004 - ST01Z",
+    "STN 11321 - ST02Z",
+    "STN 11331 - ST03Z",
+    "DIN 17162-T2/1980"
+  ],
+  "PLASTIC_COATED_COILS_EXTRA_INFO": "Hrúbka základnej vrstvy 5-15 µm a hrúbka vrchnej vrstvy od 10 do 200 µm",
+
+  "COPYRIGHT_TEXT": "© 2024 Jaroslav Barabáš",
+  "EMAIL_FOOTER": "kemax@kemax.sk",
+  "BUSINESS_HOURS": "Pondelok - Piatok: 7:00 - 15:00",
+  "ADDRESS_FOOTER": "Veľká Ida 682, 044 55 Košice-okolie",
+  "PRIVACY_POLICY": "Ochrana osobných údajov",
+
+  "PAGE_TITLE": "Hladké a vlnité plechy",
+  "IMAGE_ALT": "Plechy",
+  "ABOUT_SHEETS_TITLE": "O našich plechoch",
+  "ABOUT_SHEETS_DESCRIPTION": "Rezané z studenokovaných kotúčov, bez povrchovej úpravy alebo pozinkované. Naše plechy sú známe svojou vysokou kvalitou a univerzálnosťou, vhodné pre rôzne priemyselné a stavebné aplikácie.",
+  "OUR_OFFER_TITLE": "Naša ponuka",
+  "SMOOTH_SHEETS_TITLE": "HLADKÉ PLECHY",
+  "SMOOTH_SHEET_DETAILS": [
+    "Výroba v dĺžkach od 300 do 3000 mm alebo podľa požiadaviek zákazníka.",
+    "V hrúbkach 0,5 - 1,5 mm, v šírkach 500 - 1250 mm podľa požiadaviek zákazníka"
+  ],
+  "CORRUGATED_SHEETS_TITLE": "VLNITÉ PLECHY",
+  "CORRUGATED_SHEET_DETAILS": [
+    "Výroba s priečnou vlnou z hladkých pozinkovaných plechov.",
+    "V hrúbkach 0,50 - 0,55 mm, v štandardnej dĺžke 2000 mm, k dispozícii aj v kratších dĺžkach na dohodu",
+    "POČIATOČNÁ ŠÍRKA 1000 mm",
+    "Skutočná konečná šírka: 750 - 800 mm, využiteľná šírka: 730 - 740 mm"
+  ],
+
+  "PAGE_TITLE2": "Trapézový plech",
+  "PAGE_DESCRIPTION": "Trapézové plechové profily T18, T29 a T50 sú ideálne stavebné materiály pre vonkajšie a vnútorné strechy a fasádne opláštenie priemyselných budov, rodinných domov, garáží a rôznych hospodárskych budov vďaka svojim užitočným vlastnostiam.",
+  "PRODUCT_CHARACTERISTICS_TITLE": "Výrobná charakteristika",
+  "PRODUCT_CHARACTERISTICS_ITEMS": [
+    "Výroba z kotúčov, studenokované",
+    "Pozinkované a plastom pokryté"
+  ],
+  "PRODUCTION_LENGTHS_TITLE": "Výrobné dĺžky",
+  "USABLE_PROFILE_WIDTH_TITLE": "Využiteľná šírka profilu",
+  "APPROXIMATE_WEIGHT_TITLE": "Približná hmotnosť (kg/m²)",
+  "THICKNESS_HEADER": "Hrúbka",
+  "WIDTH_1110_HEADER": "Šírka 1110 mm",
+  "WIDTH_890_HEADER": "Šírka 890 mm"
+}

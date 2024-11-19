@@ -1,10 +1,27 @@
-"use client"
+"use client";
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
 import Link from "next/link";
 import React from "react";
-import { motion } from "framer-motion"; 
+import { motion } from "framer-motion";
+import { useTranslations } from "./useTranslations";
 
 const Footer = () => {
+  const translations = useTranslations();
+
+  if (!translations) {
+    return (
+      <div className="flex justify-center items-center text-[#d61414] font-bold">
+        Loading...
+      </div>
+    );
+  }
+
+  // Check the current language from localStorage
+  const currentLanguage =
+    typeof window !== "undefined"
+      ? localStorage.getItem("language") || "sk"
+      : "sk";
+
   return (
     <motion.div
       className="bg-[#24272D] w-full p-5 text-white flex lg:flex-row flex-col justify-between items-center px-4"
@@ -27,14 +44,7 @@ const Footer = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
-          &copy; 2024{" "}
-          <a
-            target="_blank"
-            className="mx-auto underline"
-            href="https://jaroslav.website"
-          >
-            Jaroslav Barabáš
-          </a>
+          {translations.COPYRIGHT_TEXT}
         </motion.p>
       </div>
 
@@ -51,7 +61,7 @@ const Footer = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <Phone className="text-[#d61414]" /> +421 907 931 597
+            <Phone className="text-[#d61414]" /> {translations.PHONE_NUMBER}
           </motion.p>
           <motion.p
             className="flex gap-2"
@@ -59,7 +69,7 @@ const Footer = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <Mail className="text-[#d61414]" /> kemax@kemax.sk
+            <Mail className="text-[#d61414]" /> {translations.EMAIL_FOOTER}
           </motion.p>
         </motion.div>
 
@@ -70,8 +80,7 @@ const Footer = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <Clock className="text-[#d61414]" /> Pondelok - Piatok: 7:00 - 15:00
-            hod.
+            <Clock className="text-[#d61414]" /> {translations.BUSINESS_HOURS}
           </motion.p>
           <motion.p
             className="flex gap-2"
@@ -79,21 +88,22 @@ const Footer = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <MapPin className="text-[#d61414]" /> Veľká Ida 682, 044 55
-            Košice-okolie
+            <MapPin className="text-[#d61414]" /> {translations.ADDRESS_FOOTER}
           </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          >
-            <Link
-              href="/osobneUdaje"
-              className="text-[#d61414] uppercase mt-2 font-bold hover:underline"
+          {currentLanguage === "sk" && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
             >
-              Zásady ochrany osobných údajov
-            </Link>
-          </motion.div>
+              <Link
+                href="/osobneUdaje"
+                className="text-[#d61414] uppercase mt-2 font-bold hover:underline"
+              >
+                {translations.PRIVACY_POLICY}
+              </Link>
+            </motion.div>
+          )}
         </motion.div>
       </motion.div>
     </motion.div>

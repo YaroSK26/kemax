@@ -3,8 +3,19 @@ import React from "react";
 import { motion } from "framer-motion";
 import Support from "../../components/Support";
 import Link from "next/link";
+import { useTranslations } from "../../components/useTranslations";
 
 const Plechy = () => {
+  const translations = useTranslations();
+
+  if (!translations) {
+    return (
+      <div className="flex justify-center items-center text-[#d61414] font-bold">
+        Loading...
+      </div>
+    );
+  }
+
   return (
     <div>
       <div className="w-full bg-[#D61414]">
@@ -16,7 +27,7 @@ const Plechy = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Plechy
+            {translations.PLECHY_TITLE}
           </motion.h2>
         </div>
       </div>
@@ -28,7 +39,7 @@ const Plechy = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.8 }}
         >
-          Náš hlavný výrobný program
+          {translations.MAIN_PROGRAM}
         </motion.h2>
         <motion.p
           className="text-center text-[#D61414] font-bold mb-8"
@@ -36,7 +47,7 @@ const Plechy = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.8 }}
         >
-          Hladké plechy, vlnité plechy a trapézové profily v rôznych úpravách
+          {translations.PRODUCTS_DESCRIPTION}
         </motion.p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -51,14 +62,16 @@ const Plechy = () => {
             <Link href="./plechy/hladke-vlnite">
               <img
                 src="/3.jpg"
-                alt="Hladké plechy"
+                alt={translations.SMOOTH_SHEETS_ALT}
                 width={500}
                 height={300}
                 className="w-full h-64 object-cover"
               />
               <div className="absolute bottom-0 left-0 w-full bg-[#D61414] text-white p-4">
-                <h3 className="font-bold text-lg">HLADKÉ PLECHY</h3>
-                <p>valcované za studena a pozinkované</p>
+                <h3 className="font-bold text-lg">
+                  {translations.SMOOTH_SHEETS}
+                </h3>
+                <p>{translations.SMOOTH_SHEETS_DESC}</p>
               </div>
             </Link>
           </motion.div>
@@ -74,14 +87,16 @@ const Plechy = () => {
             <Link href="./plechy/hladke-vlnite">
               <img
                 src="/2.jpg"
-                alt="Vlnité plechy"
+                alt={translations.CORRUGATED_SHEETS_ALT}
                 width={500}
                 height={300}
                 className="w-full h-64 object-cover"
               />
               <div className="absolute bottom-0 left-0 w-full bg-[#D61414] text-white p-4">
-                <h3 className="font-bold text-lg">VLNITÉ PLECHY</h3>
-                <p>valcované za studena a pozinkované</p>
+                <h3 className="font-bold text-lg">
+                  {translations.CORRUGATED_SHEETS}
+                </h3>
+                <p>{translations.CORRUGATED_SHEETS_DESC}</p>
               </div>
             </Link>
           </motion.div>
@@ -97,14 +112,16 @@ const Plechy = () => {
             <Link href="./plechy/trapezove">
               <img
                 src="/1.jpg"
-                alt="Trapézové profily"
+                alt={translations.TRAPEZOID_PROFILES_ALT}
                 width={500}
                 height={300}
                 className="w-full h-64 object-cover"
               />
               <div className="absolute bottom-0 left-0 w-full bg-[#D61414] text-white p-4">
-                <h3 className="font-bold text-lg">TRAPÉZOVÉ PROFILY</h3>
-                <p>T18, T29 a T50, aj lakoplastované</p>
+                <h3 className="font-bold text-lg">
+                  {translations.TRAPEZOID_PROFILES}
+                </h3>
+                <p>{translations.TRAPEZOID_PROFILES_DESC}</p>
               </div>
             </Link>
           </motion.div>
