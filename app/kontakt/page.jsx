@@ -1,28 +1,89 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import { Input } from "../../components/ui/input";
 import { Textarea } from "../../components/ui/textarea";
 import { Button } from "../../components/ui/button";
 import { Card, CardContent } from "../../components/ui/card";
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import emailjs from "@emailjs/browser";
+import toast, { Toaster } from "react-hot-toast";
+import { motion } from "framer-motion";
 
 const ContactPage = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    emailjs
+      .send(
+        "service_qoulvpw",
+        "template_34yqe7r",
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        },
+        "8n0xwsQIYrNrL3lLn"
+      )
+      .then(
+        (result) => {
+          toast.success("Správa bola úspešne odoslaná!");
+          setFormData({ name: "", email: "", subject: "", message: "" });
+          setIsLoading(false);
+        },
+        (error) => {
+          toast.error("Niečo sa pokazilo, skúste znova.");
+          setIsLoading(false);
+        }
+      );
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Title section with full-width red background */}
+      <Toaster />
       <div className="w-full bg-[#D61414]">
         <div className="container mx-auto px-4 py-8">
-          <h2 className="text-4xl font-bold  text-white text-center pt-16">
+          <motion.h2
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-4xl font-bold text-white text-center pt-16"
+          >
             Kontakt
-          </h2>
+          </motion.h2>
         </div>
       </div>
 
       <section className="py-12">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {/* Contact Info Cards */}
-            <div className="space-y-4">
-              <Card className="hover:shadow-lg transition-shadow">
+            <motion.div
+              className="space-y-4"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8 }}
+            >
+              <motion.div
+                className="hover:shadow-lg transition-shadow"
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.8 }}
+              >
                 <CardContent className="p-6">
                   <div className="flex items-center space-x-4">
                     <Phone className="h-6 w-6 text-red-600" />
@@ -32,9 +93,14 @@ const ContactPage = () => {
                     </div>
                   </div>
                 </CardContent>
-              </Card>
+              </motion.div>
 
-              <Card className="hover:shadow-lg transition-shadow">
+              <motion.div
+                className="hover:shadow-lg transition-shadow"
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
                 <CardContent className="p-6">
                   <div className="flex items-center space-x-4">
                     <Mail className="h-6 w-6 text-red-600" />
@@ -44,9 +110,14 @@ const ContactPage = () => {
                     </div>
                   </div>
                 </CardContent>
-              </Card>
+              </motion.div>
 
-              <Card className="hover:shadow-lg transition-shadow">
+              <motion.div
+                className="hover:shadow-lg transition-shadow"
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+              >
                 <CardContent className="p-6">
                   <div className="flex items-center space-x-4">
                     <MapPin className="h-6 w-6 text-red-600" />
@@ -56,9 +127,14 @@ const ContactPage = () => {
                     </div>
                   </div>
                 </CardContent>
-              </Card>
+              </motion.div>
 
-              <Card className="hover:shadow-lg transition-shadow">
+              <motion.div
+                className="hover:shadow-lg transition-shadow"
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+              >
                 <CardContent className="p-6">
                   <div className="flex items-center space-x-4">
                     <Clock className="h-6 w-6 text-red-600" />
@@ -68,48 +144,80 @@ const ContactPage = () => {
                     </div>
                   </div>
                 </CardContent>
-              </Card>
-            </div>
+              </motion.div>
+            </motion.div>
 
             {/* Contact Form */}
-            <Card className="lg:col-span-2 hover:shadow-lg transition-shadow">
-              <CardContent className="p-6">
-                <form className="space-y-6">
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <label className="text-sm font-medium">Meno</label>
-                      <Input placeholder="Vaše meno" />
+            <motion.div
+              className="lg:col-span-2  transition-shadow"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              <Card>
+                <CardContent className="p-6">
+                  <form className="space-y-6" onSubmit={handleSubmit}>
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <label className="text-sm font-medium">Meno</label>
+                        <Input
+                          name="name"
+                          placeholder="Vaše meno"
+                          value={formData.name}
+                          onChange={handleChange}
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <label className="text-sm font-medium">Email</label>
+                        <Input
+                          type="email"
+                          name="email"
+                          placeholder="Váš email"
+                          value={formData.email}
+                          onChange={handleChange}
+                        />
+                      </div>
                     </div>
                     <div className="space-y-2">
-                      <label className="text-sm font-medium">Email</label>
-                      <Input type="email" placeholder="Váš email" />
+                      <label className="text-sm font-medium">Predmet</label>
+                      <Input
+                        name="subject"
+                        placeholder="Predmet správy"
+                        value={formData.subject}
+                        onChange={handleChange}
+                      />
                     </div>
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium">Predmet</label>
-                    <Input placeholder="Predmet správy" />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium">Správa</label>
-                    <Textarea
-                      placeholder="Vaša správa"
-                      rows={4}
-                      className="resize-none"
-                    />
-                  </div>
-                  <Button
-                    type="submit"
-                    className="w-full bg-red-600 hover:bg-red-700 text-white"
-                  >
-                    Odoslať správu
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium">Správa</label>
+                      <Textarea
+                        name="message"
+                        placeholder="Vaša správa"
+                        rows={4}
+                        className="resize-none"
+                        value={formData.message}
+                        onChange={handleChange}
+                      />
+                    </div>
+                    <Button
+                      type="submit"
+                      className="w-full bg-red-600 hover:bg-red-700 text-white"
+                      disabled={isLoading}
+                    >
+                      {isLoading ? "Odosielanie..." : "Odoslať správu"}
+                    </Button>
+                  </form>
+                </CardContent>
+              </Card>
+            </motion.div>
           </div>
 
           {/* Map Section */}
-          <div className="mt-12">
+          <motion.div
+            className="mt-12"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
             <Card className="hover:shadow-lg transition-shadow">
               <CardContent className="p-0">
                 <iframe
@@ -121,7 +229,7 @@ const ContactPage = () => {
                 ></iframe>
               </CardContent>
             </Card>
-          </div>
+          </motion.div>
         </div>
       </section>
     </div>

@@ -1,17 +1,43 @@
+"use client";
 import React from "react";
+import { motion } from "framer-motion";
 
 const Support = () => {
   return (
     <div>
-      <div className="  shadow-md hover:shadow-lg mt-16 bg-white rounded-lg p-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">
+      <motion.div
+        className="shadow-md hover:shadow-lg mt-16 bg-white rounded-lg p-8"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        <motion.h2
+          className="text-2xl font-bold text-gray-900 mb-4"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
           Potrebujete poradiť?
-        </h2>
-        <p className="text-gray-600 mb-4">
+        </motion.h2>
+        <motion.p
+          className="text-gray-600 mb-4"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
           Naši odborníci vám radi pomôžu s výberom vhodného príslušenstva pre
           vaše potreby.
-        </p>
-        <div className="flex items-center text-[#d61414] font-medium">
+        </motion.p>
+        <motion.div
+          className="flex items-center text-[#d61414] font-medium"
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+        >
           <svg
             className="w-5 h-5 mr-2"
             fill="none"
@@ -26,8 +52,8 @@ const Support = () => {
             />
           </svg>
           +421 907 931 597
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </div>
   );
 };

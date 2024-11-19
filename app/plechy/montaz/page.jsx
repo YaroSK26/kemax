@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import * as Icons from "lucide-react";
 import Support from "../../../components/Support";
+import { motion } from "framer-motion"; 
+
 
 // Helper function to safely access icons
 const getIcon = (name) => {
@@ -59,9 +61,9 @@ export default function InstallationGuide() {
           <div className="space-y-4">
             <div className="flex items-center gap-2 mb-4">
               {getIcon("Package")}
-              <h2 className="text-xl font-semibold">
+              <motion.h2  className="text-xl font-semibold">
                 Manipulácia s materiálom
-              </h2>
+              </motion.h2>
             </div><br />
 
             <ul className="list-disc pl-6 space-y-2">
@@ -242,18 +244,36 @@ export default function InstallationGuide() {
     <div className="w-full mx-auto  space-y-6">
       <div className="w-full bg-[#D61414]">
         <div className="container mx-auto px-4 py-8">
-          <h1 className="text-4xl font-bold text-white text-center pt-16">
+          <motion.h1
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-4xl font-bold text-white text-center pt-16"
+          >
             Odporúčania montáže
-          </h1>
+          </motion.h1>
         </div>
       </div>
 
       <div className="max-w-6xl mx-auto px-4 py-12">
-        <h1 className="text-3xl font-bold mb-8">
+        <motion.h1
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-3xl font-bold mb-8"
+        >
           Návod na montáž trapézových plechov
-        </h1>
+        </motion.h1>
 
-        <div className="w-full">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="w-full"
+        >
           <div className="flex flex-wrap gap-2 border-b">
             {tabs.map((tab) => (
               <Tab
@@ -271,8 +291,8 @@ export default function InstallationGuide() {
               {renderContent()}
             </div>
           </div>
-        </div>
-      <Support></Support>
+        </motion.div>
+        <Support></Support>
       </div>
     </div>
   );

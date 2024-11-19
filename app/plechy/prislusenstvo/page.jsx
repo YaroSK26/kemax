@@ -1,3 +1,4 @@
+"use client"
 import {
   Card,
   CardContent,
@@ -7,6 +8,7 @@ import {
 import { Mail, Wrench, Shield, PenToolIcon as Tool } from "lucide-react";
 import Link from "next/link";
 import Support from "../../../components/Support";
+import { motion } from "framer-motion"; 
 
 export default function Component() {
   return (
@@ -14,26 +16,44 @@ export default function Component() {
       {/* Hero Section */}
       <div className="w-full bg-[#D61414]">
         <div className="container mx-auto px-4 py-8">
-          <h1 className="text-4xl font-bold text-white text-center pt-5">
+          <motion.h1
+            className="text-4xl font-bold text-white text-center pt-5"
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
             Príslušenstvo
-          </h1>
+          </motion.h1>
         </div>
       </div>
 
       <div className="max-w-6xl mx-auto px-4 py-12">
         <div className="grid gap-12">
           {/* Price Notice */}
-          <Card className="bg-red-50 border-red-100">
-            <CardContent className="flex items-center gap-4 p-6">
-              <Mail className="w-6 h-6 text-red-500" />
-              <p className="text-red-700 font-semibold text-lg">
-                Aktuálne ceny sú na vyžiadanie!
-              </p>
-            </CardContent>
-          </Card>
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <Card className="bg-red-50 border-red-100">
+              <CardContent className="flex items-center gap-4 p-6">
+                <Mail className="w-6 h-6 text-red-500" />
+                <p className="text-red-700 font-semibold text-lg">
+                  Aktuálne ceny sú na vyžiadanie!
+                </p>
+              </CardContent>
+            </Card>
+          </motion.div>
 
           {/* Sealing Profiles Section */}
-          <section>
+          <motion.section
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+          >
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-2xl font-semibold">
@@ -73,10 +93,15 @@ export default function Component() {
                 </div>
               </CardContent>
             </Card>
-          </section>
+          </motion.section>
 
           {/* Screws Section */}
-          <section>
+          <motion.section
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+          >
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-2xl font-semibold">
@@ -142,10 +167,15 @@ export default function Component() {
                 </div>
               </CardContent>
             </Card>
-          </section>
+          </motion.section>
 
           {/* Tinsmith Products Section */}
-          <section>
+          <motion.section
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 1 }}
+          >
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-2xl font-semibold">
@@ -167,7 +197,7 @@ export default function Component() {
                 </Link>
               </CardContent>
             </Card>
-          </section>
+          </motion.section>
         </div>
         <Support></Support>
       </div>
