@@ -83,7 +83,7 @@ body {
 }
 .bg {
   position: relative;
-  background-image: url("/banner.jpg");
+  background-image: url("/bg.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -116,13 +116,18 @@ body {
   margin-bottom: 10px;
 }
 
-nav ul li  {
+nav ul li {
     text-decoration: none;
     transition: color 1s;
     position: relative;
 }
 
-nav ul li ::before {
+nav ul li  {
+    text-decoration: none;
+    position: relative;
+}
+
+nav ul li::before {
     content: "";
     position: absolute;
     bottom: -3px;
@@ -133,12 +138,9 @@ nav ul li ::before {
     transition: width 0.5s ease;
 }
 
-nav ul li :hover::before {
+nav ul li:hover::before {
     width: 100%;
 }
-
-nav ul li :hover::after {
-    width: 0%;}
 
 
     .shadow-custom:hover{

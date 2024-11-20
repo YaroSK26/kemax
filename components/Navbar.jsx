@@ -3,11 +3,15 @@
 import { Menu, X, ChevronDown } from "lucide-react";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations } from "./useTranslations";
 
 const LanguageSwitcher = () => {
-  const [language, setLanguage] = useState("sk");
+  const [language, setLanguage] = useState(() => {
+    return typeof window !== "undefined"
+      ? localStorage.getItem("language") || "sk"
+      : "sk";
+  });
   const [translations, setTranslations] = useState(null);
 
   useEffect(() => {
@@ -37,16 +41,14 @@ const LanguageSwitcher = () => {
   };
 
   return (
-    <>
-      <select
-        value={language}
-        onChange={handleLanguageChange}
-        className="hidden xl:block bg-[#24272D] text-white border border-[#d61414] rounded p-1"
-      >
-        <option value="sk">Slovenčina</option>
-        <option value="en">English</option>
-      </select>
-    </>
+    <select
+      value={language}
+      onChange={handleLanguageChange}
+      className="hidden xl:block bg-[#24272D] text-white border border-[#d61414] rounded p-1"
+    >
+      <option value="sk">Slovenčina</option>
+      <option value="en">English</option>
+    </select>
   );
 };
 
@@ -56,23 +58,34 @@ const NavItem = ({ href, text, dropdownItems }) => {
 
   const translatedText = translations ? translations[text] || text : text;
 
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
   return (
     <motion.span
-      className="relative"
-      onMouseEnter={() => setIsDropdownOpen(true)}
-      onMouseLeave={() => setIsDropdownOpen(false)}
+      className="relative group"
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.2 }}
     >
-      <div className="flex items-center gap-1 cursor-pointer">
+      <div className="flex items-center justify-center gap-1 cursor-pointer">
         <Link
           href={href}
-          className="text-muted hover:text-white transition-colors"
+          className="text-muted hover:text-white transition-colors relative"
         >
           {translatedText}
+          <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-[#D61414] transition-all duration-300 group-hover:w-full"></span>
         </Link>
-        {dropdownItems && <ChevronDown className="w-4 h-4 text-muted" />}
+        {dropdownItems && (
+          <motion.div
+            onClick={toggleDropdown}
+            animate={{ rotate: isDropdownOpen ? 180 : 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            <ChevronDown className="w-4 h-4 text-muted" />
+          </motion.div>
+        )}
       </div>
 
       {dropdownItems && isDropdownOpen && (
@@ -109,11 +122,25 @@ const NavItem = ({ href, text, dropdownItems }) => {
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [language, setLanguage] = useState("sk");
+  const [language, setLanguage] = useState(() => {
+    return typeof window !== "undefined"
+      ? localStorage.getItem("language") || "sk"
+      : "sk";
+  });
+  const [isPlechyOpen, setIsPlechyOpen] = useState(true); // Default open on mobile
   const translations = useTranslations();
+
+  useEffect(() => {
+    const storedLanguage = localStorage.getItem("language") || "sk";
+    setLanguage(storedLanguage);
+  }, []);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+  };
+
+  const togglePlechyDropdown = () => {
+    setIsPlechyOpen(!isPlechyOpen);
   };
 
   const handleLanguageChange = async (lang) => {
@@ -145,7 +172,7 @@ export default function Navbar() {
   ];
 
   return (
-    <div>
+    <div className="relative">
       <div className="fixed top-0 left-0 border-b-2 border-b-[#d61414] right-0 flex justify-between bg-[#24272D] text-white font-bold z-50 items-center p-6 sm:px-12 px-6">
         <motion.div
           className="z-50"
@@ -157,7 +184,7 @@ export default function Navbar() {
             <img
               src="/logo.png"
               alt="Logo"
-              className="w-40X h-7 sm:w-52 sm:h-8"
+              className="w-40 h-7 sm:w-52 sm:h-8"
             />
           </Link>
         </motion.div>
@@ -210,83 +237,95 @@ export default function Navbar() {
         </motion.button>
       </div>
 
-      {isOpen && (
-        <motion.div
-          className="fixed inset-0 pt-14 bg-[#24272D] flex flex-col items-center justify-center space-y-8 z-40"
-          initial={{ opacity: 0, x: "100%" }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: "100%" }}
-          transition={{ duration: 0.2 }}
-        >
-          {menuItems.map((item, index) => (
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            className="fixed inset-0  bg-[#24272D] pt-32 h-screen flex flex-col items-center justify-start space-y-8 z-40 overflow-y-auto "
+            initial={{ opacity: 0, x: "100%" }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: "100%" }}
+            transition={{ duration: 0.2 }}
+          >
+            {menuItems.map((item, index) => (
+              <motion.div
+                key={item.href}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.05 + 0.15 }}
+              >
+                <Link
+                  href={item.href}
+                  className="text-white text-2xl"
+                  onClick={toggleMenu}
+                >
+                  {translations
+                    ? translations[item.text] || item.text
+                    : item.text}
+                </Link>
+              </motion.div>
+            ))}
+
             <motion.div
-              key={item.href}
+              className="relative group w-full px-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.05 + 0.15 }}
+              transition={{ delay: 0.25 }}
             >
-              <Link
-                href={item.href}
-                className="text-white text-2xl"
-                onClick={toggleMenu}
+              <div
+                className="text-white text-2xl mb-2 text-center flex justify-center items-center cursor-pointer"
+                onClick={togglePlechyDropdown}
               >
-                {translations
-                  ? translations[item.text] || item.text
-                  : item.text}
-              </Link>
+                {translations ? translations["PLECHY"] || "PLECHY" : "PLECHY"}
+                <ChevronDown
+                  className={`ml-2 w-6 h-6 transform transition-transform ${
+                    isPlechyOpen ? "rotate-180" : ""
+                  }`}
+                />
+              </div>
+              {isPlechyOpen && (
+                <div className="space-y-2 mt-2">
+                  {plechyDropdown.map((item, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.05 + 0.3 }}
+                    >
+                      <Link
+                        href={item.href}
+                        className="block text-white text-lg text-center hover:text-[#d61414] transition-colors"
+                        onClick={toggleMenu}
+                      >
+                        {translations
+                          ? translations[item.text] || item.text
+                          : item.text}
+                      </Link>
+                    </motion.div>
+                  ))}
+                </div>
+              )}
             </motion.div>
-          ))}
 
-          <motion.div
-            className="relative group"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.25 }}
-          >
-            <div className="text-white text-2xl mb-2 text-center">
-              {translations ? translations["PLECHY"] || "PLECHY" : "PLECHY"}
-            </div>
-            <div className="space-y-2">
-              {plechyDropdown.map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.05 + 0.3 }}
-                >
-                  <Link
-                    href={item.href}
-                    className="block text-white text-lg hover:text-[#d61414] transition-colors"
-                    onClick={toggleMenu}
-                  >
-                    {translations
-                      ? translations[item.text] || item.text
-                      : item.text}
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.35 }}
-          >
-            <select
-              value={language}
-              onChange={(e) => {
-                handleLanguageChange(e.target.value);
-                toggleMenu();
-              }}
-              className="bg-[#24272D] text-white border border-[#d61414] rounded p-2 text-xl"
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.35 }}
             >
-              <option value="sk">Slovenčina</option>
-              <option value="en">English</option>
-            </select>
+              <select
+                value={language}
+                onChange={(e) => {
+                  handleLanguageChange(e.target.value);
+                  toggleMenu();
+                }}
+                className="bg-[#24272D] text-white border border-[#d61414] rounded p-2 text-xl"
+              >
+                <option value="sk">Slovenčina</option>
+                <option value="en">English</option>
+              </select>
+            </motion.div>
           </motion.div>
-        </motion.div>
-      )}
+        )}
+      </AnimatePresence>
     </div>
   );
 }
