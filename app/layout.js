@@ -1,7 +1,8 @@
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-
+import CookieConsent from "../components/CookieConsent";
+  
 export const metadata = {
   title: "Kemax s.r.o.",
   description:
@@ -21,10 +22,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="sk">
-      
       <body>
         <Navbar />
         {children}
+        <CookieConsent></CookieConsent>
         <Footer />
       </body>
     </html>
