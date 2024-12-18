@@ -158,6 +158,7 @@ export default function Navbar() {
   };
 
   const plechyDropdown = [
+    { href: "/plechy/", text: "PLECHY" },
     { href: "/plechy/prislusenstvo", text: "PRISLUSENSTVO" },
     { href: "/plechy/montaz", text: "ODPORUCANIA_MONTAZE" },
     { href: "/plechy/farby", text: "FARBY" },
@@ -294,7 +295,10 @@ export default function Navbar() {
                       <Link
                         href={item.href}
                         className="block text-white text-lg text-center hover:text-[#d61414] transition-colors"
-                        onClick={toggleMenu}
+                        onClick={() => {
+                          togglePlechyDropdown(); // Close the dropdown
+                          toggleMenu(); // Close the mobile menu
+                        }}
                       >
                         {translations
                           ? translations[item.text] || item.text
