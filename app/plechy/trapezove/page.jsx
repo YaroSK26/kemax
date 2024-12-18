@@ -18,7 +18,7 @@ import Support from "../../../components/Support";
 
 const profiles = {
   T18: {
-    description: "Trapezoidal Sheet Metal with T18 Profile",
+    description: "T18",
     lengths: "0.1m–12m",
     usableWidth: {
       "1250mm input": "1072mm",
@@ -34,7 +34,7 @@ const profiles = {
     image: "/T18.jpg",
   },
   T29: {
-    description: "Trapezoidal Sheet Metal with T29 Profile",
+    description: "T29 ",
     lengths: "0.1m–12m",
     usableWidth: {
       "1250mm input": "1029mm",
@@ -51,7 +51,7 @@ const profiles = {
     image: "/T29.jpg",
   },
   T50: {
-    description: "Trapezoidal Sheet Metal with T50 Profile",
+    description: "T50 ",
     lengths: "0.1m–12m",
     usableWidth: {
       "1250mm input": "1040mm",
@@ -85,10 +85,10 @@ export default function TrapezeSheetMetalCatalog() {
   }
 
   return (
-    <div className="container mx-auto ">
-      <div className="w-full bg-[#D61414]">
+    <div className=" ">
+      <div className=" bg-[#D61414]">
         <div className="container mx-auto px-4 py-8">
-          <motion.h2
+          <motion.h1
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -96,11 +96,11 @@ export default function TrapezeSheetMetalCatalog() {
             className="text-4xl font-bold text-white text-center pt-16"
           >
             {translations.PAGE_TITLE2}
-          </motion.h2>
+          </motion.h1>
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 py-12">
+      <div className="max-w-6xl mx-auto px-4 py-16">
         <motion.p
           className="mb-4"
           initial={{ opacity: 0, y: 20 }}
@@ -142,7 +142,7 @@ export default function TrapezeSheetMetalCatalog() {
           </TabsList>
           {Object.entries(profiles).map(([profile, details]) => (
             <TabsContent key={profile} value={profile}>
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="flex flex-col lg:flex-row justify-center items-center gap-4">
                 <motion.img
                   src={details.image}
                   alt={`Trapezoidal Sheet Metal ${profile}`}

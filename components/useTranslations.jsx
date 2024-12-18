@@ -6,24 +6,38 @@ export const useTranslations = () => {
   const [translations, setTranslations] = useState(null);
 
   useEffect(() => {
-    // Ensure this only runs on the client side
+    // Kontrola len na klientskej strane
     if (typeof window !== "undefined") {
-      // Load initial translations
-      const language = localStorage.getItem("language") || "sk";
+      const loadTranslations = async () => {
+        try {
+          // Použite bezpečnú metódu na zistenie jazyka
+          const language =
+            typeof window !== "undefined"
+              ? localStorage.getItem("language") || "sk"
+              : "sk";
 
-      fetch(`/locales/${language}.json`)
-        .then((res) => res.json())
-        .then((data) => setTranslations(data))
-        .catch((err) => console.error("Error loading translations:", err));
-
-      // Listen for language changes
-      const handleLanguageChange = (event) => {
-        setTranslations(event.detail.translations);
+          const response = await fetch(`/locales/${language}.json`);
+          const data = await response.json();
+          setTranslations(data);
+        } catch (err) {
+          console.error("Error loading translations:", err);
+        }
       };
 
-      window.addEventListener("languageChange", handleLanguageChange);
-      return () =>
-        window.removeEventListener("languageChange", handleLanguageChange);
+      loadTranslations();
+
+      const handleLanguageChange = (event) => {
+        if (event.detail && event.detail.translations) {
+          setTranslations(event.detail.translations);
+        }
+      };
+
+      // Pridajte len ak je window definované
+      if (typeof window !== "undefined") {
+        window.addEventListener("languageChange", handleLanguageChange);
+        return () =>
+          window.removeEventListener("languageChange", handleLanguageChange);
+      }
     }
   }, []);
 

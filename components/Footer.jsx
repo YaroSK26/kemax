@@ -15,12 +15,10 @@ const Footer = () => {
       </div>
     );
   }
-
-  // Check the current language from localStorage
-  const currentLanguage =
-    typeof window !== "undefined"
-      ? localStorage.getItem("language") || "sk"
-      : "sk";
+ const currentLanguage =
+   typeof window !== "undefined"
+     ? localStorage.getItem("language") || "sk"
+     : "sk";
 
   return (
     <motion.div

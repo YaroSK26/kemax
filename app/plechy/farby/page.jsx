@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import { Card, CardContent } from "../../../components/ui/card";
 import {
   Tabs,
@@ -117,7 +116,7 @@ export default function RalColorsComponent() {
                   >
                     <Card className="shadow-md hover:shadow-lg">
                       <CardContent className="p-4">
-                        <Image
+                        <img
                           src={product.image}
                           alt={product.name}
                           width={400}
@@ -149,7 +148,7 @@ export default function RalColorsComponent() {
                   >
                     <Card className="shadow-md hover:shadow-lg">
                       <CardContent className="p-4">
-                        <Image
+                        <img
                           src={product.image}
                           alt={product.name}
                           width={400}

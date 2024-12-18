@@ -38,7 +38,7 @@ export default function Component() {
       {/* Hero Section */}
       <div className="relative bg overflow-hidden">
         <motion.div
-          className="relative h-screen max-w-6xl mx-auto flex justify-center items-center"
+          className="relative h-[65vh] max-w-6xl mx-auto flex justify-center items-center"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

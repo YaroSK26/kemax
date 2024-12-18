@@ -11,8 +11,11 @@ import { Toaster, toast } from "react-hot-toast";
 import { motion } from "framer-motion";
 import { useTranslations } from "../../components/useTranslations";
 
+
+
 export default function ContactPage() {
   const translations = useTranslations();
+  
   const [formData, setFormData] = useState({
     name: "",
     email: "",

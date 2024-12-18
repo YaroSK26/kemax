@@ -59,7 +59,7 @@ const Plechy = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
           >
-            <Link href="./plechy/hladke-vlnite">
+            <Link href="./hladke-vlnite">
               <img
                 src="/3.jpg"
                 alt={translations.SMOOTH_SHEETS_ALT}
@@ -84,7 +84,7 @@ const Plechy = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            <Link href="./plechy/hladke-vlnite">
+            <Link href="./hladke-vlnite">
               <img
                 src="/2.jpg"
                 alt={translations.CORRUGATED_SHEETS_ALT}
@@ -109,7 +109,7 @@ const Plechy = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
           >
-            <Link href="./plechy/trapezove">
+            <Link href="./trapezove">
               <img
                 src="/1.jpg"
                 alt={translations.TRAPEZOID_PROFILES_ALT}

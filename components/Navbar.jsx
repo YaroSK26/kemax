@@ -1,7 +1,7 @@
 "use client";
 
 import { Menu, X, ChevronDown } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations } from "./useTranslations";
@@ -54,16 +54,32 @@ const LanguageSwitcher = () => {
 
 const NavItem = ({ href, text, dropdownItems }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
   const translations = useTranslations();
 
   const translatedText = translations ? translations[text] || text : text;
 
-  const toggleDropdown = () => {
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const toggleDropdown = (e) => {
+    e.stopPropagation();
     setIsDropdownOpen(!isDropdownOpen);
   };
 
   return (
     <motion.span
+      ref={dropdownRef}
       className="relative group"
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -157,8 +173,31 @@ export default function Navbar() {
     }
   };
 
+  const [isLGScreen, setIsLGScreen] = useState(
+    typeof window !== "undefined" ? window.innerWidth >= 1280 : false
+  );
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const handleResize = () => {
+      setIsLGScreen(window.innerWidth >= 1280);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   const plechyDropdown = [
-    { href: "/plechy/", text: "PLECHY" },
+    { href: "/plechy/", text: "PLECHY", hideOnXL: true },
+    { href: "/plechy/prislusenstvo", text: "PRISLUSENSTVO" },
+    { href: "/plechy/montaz", text: "ODPORUCANIA_MONTAZE" },
+    { href: "/plechy/farby", text: "FARBY" },
+    { href: "/plechy/material", text: "MATERIAL" },
+  ];
+  const plechyDropdown2 = [
     { href: "/plechy/prislusenstvo", text: "PRISLUSENSTVO" },
     { href: "/plechy/montaz", text: "ODPORUCANIA_MONTAZE" },
     { href: "/plechy/farby", text: "FARBY" },
@@ -202,7 +241,7 @@ export default function Navbar() {
               <NavItem
                 href="/plechy"
                 text="PLECHY"
-                dropdownItems={plechyDropdown}
+                dropdownItems={isLGScreen ? plechyDropdown2 : plechyDropdown}
               />
               {menuItems.slice(1).map((item) => (
                 <NavItem key={item.href} href={item.href} text={item.text} />
@@ -247,25 +286,19 @@ export default function Navbar() {
             exit={{ opacity: 0, x: "100%" }}
             transition={{ duration: 0.2 }}
           >
-            {menuItems.map((item, index) => (
-              <motion.div
-                key={item.href}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.05 + 0.15 }}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.15 }}
+            >
+              <Link
+                href="/"
+                className="text-white text-2xl"
+                onClick={toggleMenu}
               >
-                <Link
-                  href={item.href}
-                  className="text-white text-2xl"
-                  onClick={toggleMenu}
-                >
-                  {translations
-                    ? translations[item.text] || item.text
-                    : item.text}
-                </Link>
-              </motion.div>
-            ))}
-
+                {translations ? translations["DOMOV"] || "DOMOV" : "DOMOV"}
+              </Link>
+            </motion.div>
             <motion.div
               className="relative group w-full px-8"
               initial={{ opacity: 0, y: 20 }}
@@ -308,6 +341,49 @@ export default function Navbar() {
                   ))}
                 </div>
               )}
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+            >
+              <Link
+                href="/plotove-dielce"
+                className="text-white text-2xl"
+                onClick={toggleMenu}
+              >
+                {translations
+                  ? translations["PLOTOVE_DIELCE"] || "PLOTOVE_DIELCE"
+                  : "PLOTOVE_DIELCE"}
+              </Link>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.25 }}
+            >
+              <Link
+                href="/sluzby"
+                className="text-white text-2xl"
+                onClick={toggleMenu}
+              >
+                {translations ? translations["SLUZBY"] || "SLUZBY" : "SLUZBY"}
+              </Link>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+            >
+              <Link
+                href="/kontakt"
+                className="text-white text-2xl"
+                onClick={toggleMenu}
+              >
+                {translations
+                  ? translations["KONTAKT"] || "KONTAKT"
+                  : "KONTAKT"}
+              </Link>
             </motion.div>
 
             <motion.div

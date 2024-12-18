@@ -32,7 +32,7 @@ const TechnologiesPage = () => {
       </div>
 
       {/* Main Content Section */}
-      <div className="max-w-6xl mx-auto px-4 py-12">
+      <div className="max-w-6xl mx-auto px-4 py-16">
         <section className="mb-12 space-y-6 text-lg">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -69,7 +69,8 @@ const TechnologiesPage = () => {
         </section>
 
         {/* Cards Section */}
-        <div className="grid md:grid-cols-3 gap-8">
+        
+        {/* <div className="grid md:grid-cols-3 gap-8">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -101,7 +102,7 @@ const TechnologiesPage = () => {
               extraInfo={translations.PLASTIC_COATED_COILS_EXTRA_INFO}
             />
           </motion.div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
