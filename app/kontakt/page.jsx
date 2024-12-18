@@ -21,39 +21,39 @@ export default function ContactPage() {
   });
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleChange = (
+  const handleChange = (e
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = () => {
-    e.preventDefault();
-    setIsLoading(true);
+const handleSubmit = (e) => {
+  e.preventDefault();
+  setIsLoading(true);
 
-    emailjs
-      .send(
-        "service_qoulvpw",
-        "template_34yqe7r",
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          subject: formData.subject,
-          message: formData.message,
-        },
-        "8n0xwsQIYrNrL3lLn"
-      )
-      .then(
-        () => {
-          toast.success(translations.MESSAGE_SENT_SUCCESS);
-          setFormData({ name: "", email: "", subject: "", message: "" });
-          setIsLoading(false);
-        },
-        () => {
-          toast.error(translations.MESSAGE_SENT_ERROR);
-          setIsLoading(false);
-        }
-      );
-  };
+  emailjs
+    .send(
+      "service_qoulvpw",
+      "template_34yqe7r",
+      {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+      },
+      "8n0xwsQIYrNrL3lLn"
+    )
+    .then(
+      () => {
+        toast.success(translations.MESSAGE_SENT_SUCCESS);
+        setFormData({ name: "", email: "", subject: "", message: "" });
+        setIsLoading(false);
+      },
+      () => {
+        toast.error(translations.MESSAGE_SENT_ERROR);
+        setIsLoading(false);
+      }
+    );
+};
 
   if (!translations) {
     return (

@@ -44,7 +44,9 @@ const Footer = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
-          {translations.COPYRIGHT_TEXT}
+          <a href="https://www.jaroslav.website/" target="_blank" className="underline">
+            {translations.COPYRIGHT_TEXT}
+          </a>
         </motion.p>
       </div>
 
