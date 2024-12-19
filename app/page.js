@@ -55,7 +55,7 @@ export default function Component() {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               {translations.WELCOME}
-              <img src="./logo.png" alt="logo kemax" className="w-52 h-8 mt-2 " />
+              <img src="./logo.png" alt="logo kemax" className="sm:w-[400px] w-[300px] sm:h-16 h-10 mt-2 " />
             </motion.h1>
             {/* <motion.p
               className="text-center mt-6 text-xl text-zinc-100"
