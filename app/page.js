@@ -33,6 +33,8 @@ export default function Component() {
     },
   };
 
+  
+
   return (
     <div className="relative">
       {/* Hero Section */}
@@ -46,15 +48,16 @@ export default function Component() {
         >
           <div className="max-w-2xl h-screen bg-content flex justify-center items-center flex-col">
             <motion.h1
-              className="text-4xl text-center font-bold tracking-tight text-white sm:text-5xl lg:text-6xl"
+              className="text-4xl text-center font-bold flex sm:flex-row flex-col gap-4 justify-center items-center tracking-tight text-white sm:text-5xl lg:text-6xl"
               initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               {translations.WELCOME}
+              <img src="./logo.png" alt="logo kemax" className="w-52 h-8 mt-2 " />
             </motion.h1>
-            <motion.p
+            {/* <motion.p
               className="text-center mt-6 text-xl text-zinc-100"
               initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -62,7 +65,7 @@ export default function Component() {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               {translations.SUBTITLE}
-            </motion.p>
+            </motion.p> */}
           </div>
         </motion.div>
       </div>

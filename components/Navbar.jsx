@@ -211,6 +211,19 @@ export default function Navbar() {
     { href: "/kontakt", text: "KONTAKT" },
   ];
 
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
+
   return (
     <div className="relative">
       <div className="fixed top-0 left-0 border-b-2 border-b-[#d61414] right-0 flex justify-between bg-[#24272D] text-white font-bold z-50 items-center p-6 sm:px-12 px-6">
@@ -280,7 +293,7 @@ export default function Navbar() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed inset-0  bg-[#24272D] pt-32 h-screen flex flex-col items-center justify-start space-y-8 z-40 overflow-y-auto "
+            className="fixed inset-0 bg-[#24272D] pt-32 h-screen flex flex-col items-center justify-start space-y-8 z-40 overflow-y-auto pb-20"
             initial={{ opacity: 0, x: "100%" }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
