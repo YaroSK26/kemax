@@ -15,7 +15,7 @@ const TechnologiesPage = () => {
   }
 
   return (
-    <div className="bg-white text-gray-800 pt-[75px]">
+    <div className="bg-white text-gray-800 pt-[75px] min-h-screen ">
       {/* Header Section */}
       <div className="w-full bg-[#D61414]">
         <div className="container mx-auto px-4 py-[26px]">
