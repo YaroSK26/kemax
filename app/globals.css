@@ -158,3 +158,34 @@ input:-webkit-autofill:active{
     transition: background-color 5000s ease-in-out 0s;
     box-shadow: inset 0 0 20px 20px white;
 }
+
+
+
+/* Pre Chrome, Edge a Safari */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #D61414
+;
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #080808;
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #D61414
+;
+}
+
+/* Pre Firefox */
+html {
+    scrollbar-color: #D61414
+ #3e3e3e;
+    scrollbar-width: thin;
+}
