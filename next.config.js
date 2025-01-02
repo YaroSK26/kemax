@@ -5,23 +5,23 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: '/3-Plechy.html',
-        destination: 'https://www.kemax.sk/sk/3-Plechy.html',
+        source: "https://www.kemax.sk/sk/3-Plechy.html",
+        destination: "/",
         permanent: true,
       },
       {
-        source: '/12-Sluzby.html',
-        destination: 'https://www.kemax.sk/sk/12-Sluzby.html',
+        source: "https://www.kemax.sk/sk/12-Sluzby.html",
+        destination: "/",
         permanent: true,
       },
       {
-        source: '/5-Technologie.html',
-        destination: 'https://www.kemax.sk/sk/5-Technologie.html',
+        source: "https://www.kemax.sk/sk/5-Technologie.html",
+        destination: "/",
         permanent: true,
       },
       {
-        source: '/7-Kontakt.html',
-        destination: 'https://www.kemax.sk/sk/7-Kontakt.html',
+        source: "https://www.kemax.sk/sk/7-Kontakt.html",
+        destination: "/",
         permanent: true,
       },
     ];
