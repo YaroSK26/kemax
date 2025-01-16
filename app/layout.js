@@ -2,6 +2,7 @@ import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import CookieConsent from "../components/CookieConsent";
+import { Analytics } from "@vercel/analytics/react";
   
 export const metadata = {
   title: "Kemax s.r.o.",
