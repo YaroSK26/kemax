@@ -25,6 +25,7 @@ export default function RootLayout({ children }) {
     <html lang="sk">
       <body>
         <Navbar />
+        <Analytics/>
         {children}
         <CookieConsent></CookieConsent>
         <Footer />
