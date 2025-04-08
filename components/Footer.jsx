@@ -44,7 +44,7 @@ const Footer = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
           >
             <a
-              href="https://www.jaroslav.website/"
+              href="https://www.jaroslav-portfolio.eu/"
               target="_blank"
               className="underline"
               rel="noreferrer"
@@ -123,7 +123,7 @@ const Footer = () => {
         transition={{ duration: 0.8, delay: 0.3 }}
       >
         <a
-          href="https://www.jaroslav.website/"
+          href="https://www.jaroslav-portfolio.eu/"
           target="_blank"
           className="underline"
           rel="noreferrer"
