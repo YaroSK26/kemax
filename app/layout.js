@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import CookieConsent from "../components/CookieConsent";
 import { Analytics } from "@vercel/analytics/react";
-  
+
 export const metadata = {
   title: "Kemax s.r.o.",
   description:
@@ -23,9 +23,20 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="sk">
+      <head>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-10943167746"></script>
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-10943167746');
+          `,
+        }} />
+      </head>
       <body>
         <Navbar />
-        <Analytics/>
+        <Analytics />
         {children}
         <CookieConsent></CookieConsent>
         <Footer />
