@@ -17,7 +17,7 @@ const Plechy = () => {
   }
 
   return (
-    <div>
+    <div className="min-h-[90vh]">
       <div className="w-full bg-[#D61414]">
         <div className="container mx-auto px-4 py-8">
           <motion.h2
@@ -50,7 +50,7 @@ const Plechy = () => {
           {translations.PRODUCTS_DESCRIPTION}
         </motion.p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-8 gap-24 mt-28  ">
           {/* Product 1 */}
           <motion.div
             className="relative bg-white shadow-md hover:shadow-lg"
@@ -60,18 +60,18 @@ const Plechy = () => {
             transition={{ delay: 0.2, duration: 0.8 }}
           >
             <Link href="./hladke-vlnite">
-              <img
+              {/* <img
                 src="/3.jpg"
                 alt={translations.SMOOTH_SHEETS_ALT}
                 width={500}
                 height={300}
                 className="w-full h-64 object-cover"
-              />
+              /> */}
               <div className="absolute bottom-0 left-0 w-full bg-[#D61414] text-white p-4">
                 <h3 className="font-bold text-lg">
                   {translations.SMOOTH_SHEETS}
                 </h3>
-                <p>{translations.SMOOTH_SHEETS_DESC}</p>
+                {/* <p>{translations.SMOOTH_SHEETS_DESC}</p> */}
               </div>
             </Link>
           </motion.div>
@@ -85,18 +85,18 @@ const Plechy = () => {
             transition={{ delay: 0.4, duration: 0.8 }}
           >
             <Link href="./hladke-vlnite">
-              <img
+              {/* <img
                 src="/2.jpg"
                 alt={translations.CORRUGATED_SHEETS_ALT}
                 width={500}
                 height={300}
                 className="w-full h-64 object-cover"
-              />
+              /> */}
               <div className="absolute bottom-0 left-0 w-full bg-[#D61414] text-white p-4">
                 <h3 className="font-bold text-lg">
                   {translations.CORRUGATED_SHEETS}
                 </h3>
-                <p>{translations.CORRUGATED_SHEETS_DESC}</p>
+                {/* <p>{translations.CORRUGATED_SHEETS_DESC}</p> */}
               </div>
             </Link>
           </motion.div>
@@ -110,18 +110,18 @@ const Plechy = () => {
             transition={{ delay: 0.6, duration: 0.8 }}
           >
             <Link href="./trapezove">
-              <img
+              {/* <img
                 src="/1.jpg"
                 alt={translations.TRAPEZOID_PROFILES_ALT}
                 width={500}
                 height={300}
                 className="w-full h-64 object-cover"
-              />
+              /> */}
               <div className="absolute bottom-0 left-0 w-full bg-[#D61414] text-white p-4">
                 <h3 className="font-bold text-lg">
                   {translations.TRAPEZOID_PROFILES}
                 </h3>
-                <p>{translations.TRAPEZOID_PROFILES_DESC}</p>
+                {/* <p>{translations.TRAPEZOID_PROFILES_DESC}</p> */}
               </div>
             </Link>
           </motion.div>

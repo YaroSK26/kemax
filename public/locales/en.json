@@ -248,10 +248,7 @@
   "PAGE_TITLE2": "Trapezoidal Sheet Metal",
   "PAGE_DESCRIPTION": "Trapezoidal sheet metal profiles T18, T29, and T50 are ideal building materials for exterior and interior roofing and facade cladding of industrial buildings, family homes, garages, and various farm buildings due to their useful properties.",
   "PRODUCT_CHARACTERISTICS_TITLE": "Production Characteristics",
-  "PRODUCT_CHARACTERISTICS_ITEMS": [
-    "Produced from coils, cold-rolled",
-    "Galvanized and plastic-coated"
-  ],
+  "PRODUCT_CHARACTERISTICS_ITEMS": ["Production from coils", "Galvanized and painted"],
   "PRODUCTION_LENGTHS_TITLE": "Production Lengths",
   "USABLE_PROFILE_WIDTH_TITLE": "Usable Profile Width",
   "APPROXIMATE_WEIGHT_TITLE": "Approximate Weight (kg/m²)",

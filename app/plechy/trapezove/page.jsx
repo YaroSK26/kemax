@@ -21,8 +21,8 @@ const profiles = {
     description: "T18",
     lengths: "0.1m–12m",
     usableWidth: {
-      "1250mm input": "1072mm",
-      "1000mm input": "804mm",
+      "1250mm ": "1072mm",
+      "1000mm ": "804mm",
     },
     weights: [
       { thickness: 0.5, width1110: 4.66, width890: 4.98 },
@@ -37,8 +37,8 @@ const profiles = {
     description: "T29 ",
     lengths: "0.1m–12m",
     usableWidth: {
-      "1250mm input": "1029mm",
-      "1000mm input": "735mm",
+      "1250mm ": "1029mm",
+      "1000mm ": "735mm",
     },
     weights: [
       { thickness: 0.5, width1110: 4.86, width890: 5.44 },
@@ -54,8 +54,8 @@ const profiles = {
     description: "T50 ",
     lengths: "0.1m–12m",
     usableWidth: {
-      "1250mm input": "1040mm",
-      "1000mm input": "780mm",
+      "1250mm ": "1040mm",
+      "1000mm ": "780mm",
     },
     weights: [
       { thickness: 0.5, width1110: 4.81, width890: 5.13 },
