@@ -58,14 +58,14 @@ const TechnologiesPage = () => {
               {translations.WAREHOUSE_STOCKS_DESCRIPTION}
             </motion.p>
           </div>
-          <motion.p
+          {/* <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="italic text-gray-600"
           >
             {translations.ORDER_RECOMMENDATION}
-          </motion.p>
+          </motion.p> */}
         </section>
 
         {/* Cards Section */}
